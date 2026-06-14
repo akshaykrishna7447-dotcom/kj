@@ -194,8 +194,8 @@ export default function Hero({ isLoaded }) {
                                 ref={el => charsRef.current[i] = el}
                                 style={{
                                     display: 'inline-block',
-                                    fontFamily: "'Noto Serif Malayalam', serif",
-                                    fontWeight: 700,
+                                    fontFamily: "'Nehana', 'Noto Serif Malayalam', serif",
+                                    fontWeight: 'normal',
                                     fontSize: 'clamp(3rem, 10vw, 7.5rem)',
                                     lineHeight: 0.95,
                                     letterSpacing: '0.04em',
@@ -215,7 +215,7 @@ export default function Hero({ isLoaded }) {
                     </span>
 
                     <span ref={subtitleRef} style={{
-                        fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 400,
+                        fontFamily: "'Nehana', 'Noto Serif Malayalam', serif", fontWeight: 'normal',
                         fontSize: 'clamp(0.7rem, 2.5vw, 1.3rem)', letterSpacing: '1.2em',
                         textTransform: 'uppercase', color: 'rgba(212,175,55,0.9)',
                         marginTop: '12px', display: 'block', opacity: 0,
