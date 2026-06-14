@@ -183,11 +183,11 @@ export default function Hero({ isLoaded }) {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,5,2,0.15) 0%, rgba(20,5,2,0.35) 80%, #140502 100%)', zIndex: 2 }} />
 
             {/* HERO CONTENT */}
-            <div ref={contentRef} style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1200px', width: '100%', padding: '0 32px', transform: 'translateY(-50px)' }}>
+            <div ref={contentRef} style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1200px', width: '100%', padding: '0 32px', transform: 'translateY(-15px)' }}>
 
                 {/* KOTTIVATTAM — char-split reveal */}
                 <h1 style={{ display: 'flex', flexDirection: 'column', gap: '4px', overflow: 'visible' }}>
-                    <span style={{ display: 'flex', justifyContent: 'center', gap: '0.02em', overflow: 'hidden', paddingBottom: '0.08em' }}>
+                    <span style={{ display: 'flex', justifyContent: 'center', gap: '0.06em', overflow: 'hidden', paddingBottom: '0.08em' }}>
                         {letters.map((char, i) => (
                             <span
                                 key={i}
@@ -198,7 +198,6 @@ export default function Hero({ isLoaded }) {
                                     fontWeight: 'normal',
                                     fontSize: 'clamp(3rem, 10vw, 7.5rem)',
                                     lineHeight: 0.95,
-                                    letterSpacing: '0.04em',
                                     background: 'linear-gradient(135deg, #d4af37 0%, #d4af37 40%, #ff9933 70%, #fff6e0 100%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
@@ -220,6 +219,7 @@ export default function Hero({ isLoaded }) {
                         textTransform: 'uppercase', color: 'rgba(212,175,55,0.9)',
                         marginTop: '12px', display: 'block', opacity: 0,
                         textShadow: '0 2px 20px rgba(0,0,0,0.9)',
+                        marginRight: '-1.2em',
                     }}>
                         ILLAM
                     </span>
