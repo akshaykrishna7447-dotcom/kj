@@ -74,12 +74,18 @@ export default function History() {
                 }
             });
 
-            // Horizontal translate
+            // Horizontal translate and progress bar sync
             tl.to(containerRef.current, {
                 x: getScrollAmount,
                 ease: 'none',
                 duration: cardCount - 1,
-            });
+            }, 0);
+
+            tl.to('.history-progress', {
+                width: '100%',
+                ease: 'none',
+                duration: cardCount - 1,
+            }, 0);
 
             // Text reveal per card as it enters
             textRefs.current.forEach((textEl, i) => {

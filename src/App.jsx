@@ -14,6 +14,9 @@ import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Gold cursor follower — fully ref-based, zero state, zero re-renders
 function GoldenCursor() {
@@ -88,6 +91,15 @@ export default function App() {
 
   useLenis();
   useRevealAnimations();
+
+  // Fix Lenis/GSAP scroll physics after preloader completes
+  useEffect(() => {
+    if (isLoaded) {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    }
+  }, [isLoaded]);
 
   return (
     <div className="relative bg-maroon-deep min-h-screen">

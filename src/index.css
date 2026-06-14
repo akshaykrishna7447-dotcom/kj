@@ -579,3 +579,15 @@ section {
     filter: blur(20px);
   }
 }
+
+/* ═══════════════════════════════════════════
+   GLOBAL IMAGE ENHANCEMENT (Cinematic Clarity)
+═══════════════════════════════════════════ */
+img {
+  object-fit: cover;
+  filter: contrast(1.12) brightness(1.03) saturate(1.15);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform, filter;
+}
