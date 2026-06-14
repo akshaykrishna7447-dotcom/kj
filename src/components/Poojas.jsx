@@ -140,19 +140,19 @@ export default function Poojas() {
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', position: 'relative', zIndex: 2 }}>
                                 <div className="flame-icon" style={{ fontSize: '2.2rem' }}>{pooja.icon}</div>
-                                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.7rem', color: 'rgba(255,153,51,0.6)', letterSpacing: '0.1em', background: 'rgba(255,153,51,0.08)', padding: '4px 10px', border: '1px solid rgba(255,153,51,0.15)' }}>{pooja.duration}</span>
+                                <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', color: 'rgba(255,153,51,0.6)', letterSpacing: '0.1em', background: 'rgba(255,153,51,0.08)', padding: '4px 10px', border: '1px solid rgba(255,153,51,0.15)' }}>{pooja.duration}</span>
                             </div>
 
-                            <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '0.82rem', color: 'rgba(212,175,55,0.55)', marginBottom: '6px', position: 'relative', zIndex: 2 }}>{pooja.sanskrit}</p>
-                            <h3 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1.1rem', color: '#fdf5e6', marginBottom: '14px', textShadow: '0 0 20px rgba(255,153,51,0.2)', position: 'relative', zIndex: 2 }}>{pooja.name}</h3>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '0.82rem', color: 'rgba(212,175,55,0.55)', marginBottom: '6px', position: 'relative', zIndex: 2 }}>{pooja.sanskrit}</p>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1.1rem', color: '#fdf5e6', marginBottom: '14px', textShadow: '0 0 20px rgba(255,153,51,0.2)', position: 'relative', zIndex: 2 }}>{pooja.name}</h3>
                             <div className="divider-gold" style={{ width: '50px', marginBottom: '14px' }} />
-                            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.87rem', lineHeight: 1.8, color: 'rgba(253,245,230,0.65)', marginBottom: '20px', flex: 1, position: 'relative', zIndex: 2 }}>{pooja.description}</p>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.87rem', lineHeight: 1.8, color: 'rgba(253,245,230,0.65)', marginBottom: '20px', flex: 1, position: 'relative', zIndex: 2 }}>{pooja.description}</p>
 
                             <div style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px', position: 'relative', zIndex: 2 }}>
                                 {pooja.benefits.map((b) => (
                                     <div key={b} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                         <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#ff9933', flexShrink: 0, boxShadow: '0 0 8px #ff4500' }} />
-                                        <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.8rem', color: 'rgba(253,245,230,0.6)' }}>{b}</span>
+                                        <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.8rem', color: 'rgba(253,245,230,0.6)' }}>{b}</span>
                                     </div>
                                 ))}
                             </div>

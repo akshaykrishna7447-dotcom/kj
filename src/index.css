@@ -27,9 +27,9 @@
   --color-sandal: #fdf5e6;
   --color-sandal-dim: #ebd2a9;
 
-  --font-family-cinzel: 'Cinzel', 'Noto Serif Malayalam', Georgia, serif;
-  --font-family-playfair: 'Playfair Display', 'Noto Serif Malayalam', Georgia, serif;
-  --font-family-outfit: 'Outfit', sans-serif;
+  --font-family-cinzel: 'Noto Serif Malayalam', serif;
+  --font-family-playfair: 'Noto Serif Malayalam', serif;
+  --font-family-outfit: 'Noto Serif Malayalam', serif;
 }
 
 /* ═══════════════════════════════════════════
@@ -63,7 +63,7 @@ html {
 body {
   background-color: #140502;
   color: #fdf5e6;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Noto Serif Malayalam', serif;
   overflow-x: hidden;
   cursor: none;
 }
@@ -208,7 +208,7 @@ body {
 .divider-ornament::before,
 .divider-ornament::after {
   content: '';
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   background: linear-gradient(135deg, #d4af37 0%, #d4af37 40%, #ff9933 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -261,7 +261,7 @@ body {
   padding: 14px 32px;
   background: linear-gradient(135deg, #cc4400 0%, #ff9933 50%, #d4af37 100%);
   color: #140502;
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.15em;
@@ -300,7 +300,7 @@ body {
   padding: 13px 32px;
   background: transparent;
   color: #ff9933;
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-weight: 700;
   font-size: 0.78rem;
   letter-spacing: 0.15em;
@@ -382,7 +382,7 @@ body {
 }
 
 .section-eyebrow {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-size: 0.75rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -391,7 +391,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-weight: 700;
   font-size: clamp(2.5rem, 6vw, 4rem);
   color: #fdf5e6;
@@ -427,7 +427,7 @@ body {
 }
 
 .section-subtitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-style: italic;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   color: rgba(253, 245, 230, 0.65);
@@ -447,7 +447,7 @@ body {
 /* Nav */
 .nav-link {
   position: relative;
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -478,13 +478,13 @@ body {
 }
 
 .hero-title {
-  font-family: 'Cinzel', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-weight: 700;
   line-height: 1.05;
 }
 
 .hero-subtitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Noto Serif Malayalam', serif;
   font-style: italic;
 }
 

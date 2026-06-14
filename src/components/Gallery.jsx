@@ -40,7 +40,7 @@ export default function Gallery() {
                             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(0deg, rgba(20,5,2,0.95) 0%, transparent 60%)', opacity: 0, transition: 'opacity 0.35s ease' }}
                                 onMouseEnter={e => { e.currentTarget.style.opacity = 1; }} onMouseLeave={e => { e.currentTarget.style.opacity = 0; }}
                             >
-                                <p style={{ position: 'absolute', bottom: '16px', left: '16px', fontFamily: "'Cinzel', serif", fontSize: '0.8rem', letterSpacing: '0.12em', color: '#d4af37' }}>{img.caption}</p>
+                                <p style={{ position: 'absolute', bottom: '16px', left: '16px', fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.8rem', letterSpacing: '0.12em', color: '#d4af37' }}>{img.caption}</p>
                             </div>
                         </div>
                     ))}
@@ -56,7 +56,7 @@ export default function Gallery() {
                     <div style={{ position: 'relative', maxWidth: '900px', maxHeight: '85vh', overflow: 'hidden', border: '1px solid rgba(255,153,51,0.4)', boxShadow: '0 20px 80px rgba(255,69,0,0.15)' }} onClick={e => e.stopPropagation()}>
                         <img src={lightbox.src} alt={lightbox.caption} style={{ width: '100%', maxHeight: '85vh', objectFit: 'contain', display: 'block' }} />
                         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 20px', background: 'rgba(20,5,2,0.95)' }}>
-                            <p style={{ fontFamily: "'Cinzel', serif", fontSize: '0.85rem', letterSpacing: '0.15em', color: '#d4af37' }}>{lightbox.caption}</p>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.85rem', letterSpacing: '0.15em', color: '#d4af37' }}>{lightbox.caption}</p>
                         </div>
                     </div>
                 </div>

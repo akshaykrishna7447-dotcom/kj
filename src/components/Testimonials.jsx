@@ -68,21 +68,21 @@ export default function Testimonials() {
             boxShadow: '0 16px 60px rgba(0,0,0,0.4)',
         }}>
             {/* Large quote mark */}
-            <div style={{ position: 'absolute', top: '10px', left: '20px', fontFamily: "'Playfair Display', serif", fontSize: '6rem', color: 'rgba(255,153,51,0.07)', lineHeight: 1, userSelect: 'none' }}>"</div>
+            <div style={{ position: 'absolute', top: '10px', left: '20px', fontFamily: "'Noto Serif Malayalam', serif", fontSize: '6rem', color: 'rgba(255,153,51,0.07)', lineHeight: 1, userSelect: 'none' }}>"</div>
 
-            <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.65rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#ff9933', opacity: 0.7, display: 'block', marginBottom: '16px' }}>{t.ritual}</span>
+            <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: '#ff9933', opacity: 0.7, display: 'block', marginBottom: '16px' }}>{t.ritual}</span>
 
-            <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '0.95rem', lineHeight: 1.75, color: 'rgba(253,245,230,0.85)', marginBottom: '24px', position: 'relative', zIndex: 1 }}>
+            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '0.95rem', lineHeight: 1.75, color: 'rgba(253,245,230,0.85)', marginBottom: '24px', position: 'relative', zIndex: 1 }}>
                 "{t.quote}"
             </p>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #cc4400, #d4af37)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Cinzel', serif", fontSize: '0.8rem', color: '#140502', fontWeight: 700 }}>
+                <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #cc4400, #d4af37)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.8rem', color: '#140502', fontWeight: 700 }}>
                     {t.name[0]}
                 </div>
                 <div>
-                    <p style={{ fontFamily: "'Cinzel', serif", fontSize: '0.82rem', color: '#d4af37', fontWeight: 700 }}>{t.name}</p>
-                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.65rem', letterSpacing: '0.2em', color: 'rgba(253,245,230,0.4)', marginTop: '2px' }}>{t.location}</p>
+                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.82rem', color: '#d4af37', fontWeight: 700 }}>{t.name}</p>
+                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.2em', color: 'rgba(253,245,230,0.4)', marginTop: '2px' }}>{t.location}</p>
                 </div>
                 <span style={{ marginLeft: 'auto', color: '#ff9933', fontSize: '0.9rem' }}>✦</span>
             </div>

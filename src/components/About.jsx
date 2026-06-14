@@ -45,8 +45,8 @@ export default function About() {
                 <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: 'rgba(212,175,55,0.12)', marginBottom: '80px', border: '1px solid rgba(212,175,55,0.12)' }}>
                     {stats.map((s) => (
                         <div key={s.label} style={{ textAlign: 'center', padding: '28px 20px', background: 'rgba(14,3,1,0.85)' }}>
-                            <p style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: '#ff9933', textShadow: '0 0 20px rgba(255,100,0,0.4)', lineHeight: 1 }}>{s.number}</p>
-                            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.72rem', letterSpacing: '0.2em', color: 'rgba(253,245,230,0.5)', marginTop: '8px', textTransform: 'uppercase' }}>{s.label}</p>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: '#ff9933', textShadow: '0 0 20px rgba(255,100,0,0.4)', lineHeight: 1 }}>{s.number}</p>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.72rem', letterSpacing: '0.2em', color: 'rgba(253,245,230,0.5)', marginTop: '8px', textTransform: 'uppercase' }}>{s.label}</p>
                         </div>
                     ))}
                 </div>
@@ -63,10 +63,10 @@ export default function About() {
                         </div>
 
                         <div style={{ padding: '24px', marginTop: '16px', textAlign: 'center', background: 'rgba(22,7,3,0.9)', border: '1px solid rgba(212,175,55,0.12)' }}>
-                            <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '1.1rem', color: '#d4af37', marginBottom: '8px', textShadow: '0 0 10px rgba(255,153,51,0.5)' }}>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '1.1rem', color: '#d4af37', marginBottom: '8px', textShadow: '0 0 10px rgba(255,153,51,0.5)' }}>
                                 "യത്ര വിദ്യാ തത്ര ദേവാഃ"
                             </p>
-                            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.67rem', letterSpacing: '0.25em', color: 'rgba(253,245,230,0.6)', textTransform: 'uppercase' }}>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.67rem', letterSpacing: '0.25em', color: 'rgba(253,245,230,0.6)', textTransform: 'uppercase' }}>
                                 Where wisdom dwells, the divine resides
                             </p>
                         </div>
@@ -89,17 +89,17 @@ export default function About() {
                             },
                         ].map((item, i) => (
                             <div key={i} className="reveal-up">
-                                <h3 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1.05rem', color: '#d4af37', marginBottom: '14px' }}>{item.title}</h3>
+                                <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1.05rem', color: '#d4af37', marginBottom: '14px' }}>{item.title}</h3>
                                 <p className="section-subtitle" style={{ fontSize: '0.98rem', lineHeight: 1.85 }}>{item.body}</p>
                                 {i < 2 && <div className="divider-gold" style={{ marginTop: '28px' }} />}
                             </div>
                         ))}
 
                         <div className="reveal-up">
-                            <h3 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1.1rem', color: '#d4af37', marginBottom: '20px', letterSpacing: '0.1em' }}>Ritual Expertise</h3>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1.1rem', color: '#d4af37', marginBottom: '20px', letterSpacing: '0.1em' }}>Ritual Expertise</h3>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                                 {['Ganapathi Homam', 'Sudarshana Homam', 'Bhagavathy Pooja', 'Navagraha Pooja', 'Satyanarayana Katha', 'Ayushya Homam', 'Mrityunjaya Homam', 'Lakshmi Kubera Pooja'].map((r) => (
-                                    <div key={r} style={{ padding: '10px 16px', fontSize: '0.82rem', fontFamily: "'Outfit', sans-serif", color: 'rgba(253,245,230,0.85)', display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(22,7,3,0.85)', border: '1px solid rgba(212,175,55,0.1)' }}>
+                                    <div key={r} style={{ padding: '10px 16px', fontSize: '0.82rem', fontFamily: "'Noto Serif Malayalam', serif", color: 'rgba(253,245,230,0.85)', display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(22,7,3,0.85)', border: '1px solid rgba(212,175,55,0.1)' }}>
                                         <span style={{ color: '#ff9933', fontSize: '1rem' }}>✦</span>{r}
                                     </div>
                                 ))}

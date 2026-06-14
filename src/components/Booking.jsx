@@ -80,7 +80,7 @@ export default function Booking() {
                 <div style={{ textAlign: 'center', marginBottom: '80px' }}>
                     <div style={{ position: 'relative', display: 'inline-block', marginBottom: '20px' }}>
                         <div className="booking-halo" style={{ position: 'absolute', inset: '-8px', borderRadius: '50%', border: '1px solid rgba(255,153,51,0.4)', opacity: 0.8 }} />
-                        <span style={{ fontFamily: "'Cinzel', serif", fontSize: '2rem', color: '#d4af37', filter: 'drop-shadow(0 0 20px rgba(255,153,51,0.6))' }}>✦</span>
+                        <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '2rem', color: '#d4af37', filter: 'drop-shadow(0 0 20px rgba(255,153,51,0.6))' }}>✦</span>
                     </div>
                     <span className="reveal-up section-eyebrow" style={{ letterSpacing: '0.5em', marginBottom: '14px', display: 'block' }}>✦ Connect With Us ✦</span>
                     <h2 className="reveal-up section-title text-gold-gradient" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>Book a Sacred Ritual</h2>
@@ -94,7 +94,7 @@ export default function Booking() {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '40px', alignItems: 'start' }}>
                     {/* Ritual selector */}
                     <div className="reveal-left" style={{ padding: '44px 40px', background: 'rgba(20,5,2,0.85)', border: '1px solid rgba(212,175,55,0.15)', boxShadow: '0 40px 100px rgba(0,0,0,0.5)' }}>
-                        <h3 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1rem', color: '#fdf5e6', marginBottom: '28px', letterSpacing: '0.1em' }}>Select Your Sacred Ritual</h3>
+                        <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1rem', color: '#fdf5e6', marginBottom: '28px', letterSpacing: '0.1em' }}>Select Your Sacred Ritual</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '32px' }}>
                             {rituals.map((ritual, i) => (
                                 <button key={ritual} className="ritual-btn" onClick={() => handleBook(ritual)}
@@ -102,7 +102,7 @@ export default function Booking() {
                                     onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,153,51,0.5)'; e.currentTarget.style.background = 'rgba(255,153,51,0.12)'; e.currentTarget.style.transform = 'translateX(4px)'; }}
                                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,153,51,0.12)'; e.currentTarget.style.background = 'rgba(255,153,51,0.04)'; e.currentTarget.style.transform = 'translateX(0)'; }}
                                 >
-                                    <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.87rem', color: 'rgba(253,245,230,0.82)' }}>
+                                    <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.87rem', color: 'rgba(253,245,230,0.82)' }}>
                                         <span style={{ color: '#d4af37', marginRight: '12px' }}>✦</span>{ritual}
                                     </span>
                                     <MessageCircle size={13} style={{ color: '#ff9933', opacity: 0.7, flexShrink: 0 }} />
@@ -117,7 +117,7 @@ export default function Booking() {
                     {/* Right column */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <div className="reveal-right" style={{ padding: '40px 36px', background: 'rgba(20,5,2,0.85)', border: '1px solid rgba(212,175,55,0.15)', boxShadow: '0 40px 100px rgba(0,0,0,0.5)' }}>
-                            <h3 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '0.95rem', color: '#d4af37', marginBottom: '32px', letterSpacing: '0.12em' }}>Contact Information</h3>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '0.95rem', color: '#d4af37', marginBottom: '32px', letterSpacing: '0.12em' }}>Contact Information</h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
                                 {[
                                     { icon: <Phone size={18} />, label: 'Phone', value: '+91 94000 00000', href: 'tel:+919400000000' },
@@ -134,8 +134,8 @@ export default function Booking() {
                                             {item.icon}
                                         </div>
                                         <div>
-                                            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.62rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(253,245,230,0.38)', marginBottom: '3px' }}>{item.label}</p>
-                                            <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.88rem', color: 'rgba(253,245,230,0.82)' }}>{item.value}</p>
+                                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.62rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(253,245,230,0.38)', marginBottom: '3px' }}>{item.label}</p>
+                                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.88rem', color: 'rgba(253,245,230,0.82)' }}>{item.value}</p>
                                         </div>
                                     </a>
                                 ))}
@@ -147,7 +147,7 @@ export default function Booking() {
                             <p className="section-subtitle" style={{ fontSize: '0.9rem' }}>
                                 "All rituals are conducted with deep fidelity to Vedic injunctions. We invite you to experience the transformative power of authentic sacred tradition."
                             </p>
-                            <p style={{ fontFamily: "'Cinzel', serif", fontSize: '0.72rem', color: 'rgba(255,153,51,0.7)', marginTop: '16px', letterSpacing: '0.1em' }}>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.72rem', color: 'rgba(255,153,51,0.7)', marginTop: '16px', letterSpacing: '0.1em' }}>
                                 — Jayarajan Namboothiri
                             </p>
                         </div>

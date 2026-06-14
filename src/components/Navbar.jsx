@@ -51,8 +51,8 @@ export default function Navbar() {
                         <a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'none', textDecoration: 'none' }}>
                             <span className="om-ornament" style={{ fontSize: '1.5rem' }}></span>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.2em', color: '#d4af37', lineHeight: 1.1 }}>KOTTIVATTAM</span>
-                                <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 300, fontSize: '0.5rem', letterSpacing: '0.4em', color: 'rgba(253,245,230,0.5)', textTransform: 'uppercase' }}>ILLAM</span>
+                                <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.2em', color: '#d4af37', lineHeight: 1.1 }}>KOTTIVATTAM</span>
+                                <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 300, fontSize: '0.5rem', letterSpacing: '0.4em', color: 'rgba(253,245,230,0.5)', textTransform: 'uppercase' }}>ILLAM</span>
                             </div>
                         </a>
                     </div>
@@ -63,7 +63,7 @@ export default function Navbar() {
                             <a key={link.name} href={link.href} className="nav-link"
                                 onClick={(e) => { e.preventDefault(); document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }); }}
                                 style={{ 
-                                    fontFamily: "'Cinzel', serif", 
+                                    fontFamily: "'Noto Serif Malayalam', serif", 
                                     fontSize: '0.75rem', 
                                     color: 'rgba(253,245,230,0.9)',
                                     letterSpacing: '0.15em',
@@ -98,7 +98,7 @@ export default function Navbar() {
                 <div style={{ position: 'fixed', inset: 0, zIndex: 40, background: 'rgba(14,3,1,0.98)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '36px' }}>
                     {navLinks.map((link) => (
                         <a key={link.name} href={link.href} className="nav-link"
-                            style={{ fontSize: '1.4rem', fontFamily: "'Cinzel', serif", letterSpacing: '0.12em' }}
+                            style={{ fontSize: '1.4rem', fontFamily: "'Noto Serif Malayalam', serif", letterSpacing: '0.12em' }}
                             onClick={(e) => { e.preventDefault(); setIsOpen(false); document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' }); }}>
                             {link.name}
                         </a>

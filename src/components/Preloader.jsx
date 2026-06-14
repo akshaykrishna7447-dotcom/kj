@@ -47,11 +47,11 @@ export default function Preloader({ onComplete }) {
 
             <div className="preloader-text-container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
                 <div className="preloader-text-1" style={{ opacity: 0, transform: 'translateY(20px)' }}>
-                    <h2 style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, fontSize: '1.4rem', letterSpacing: '0.4em', color: '#d4af37', marginBottom: '8px', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>KOTTIVATTAM</h2>
-                    <p style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.65rem', letterSpacing: '0.6em', color: 'rgba(255,153,51,0.8)', textTransform: 'uppercase', marginBottom: '16px' }}>Awakening the Divine</p>
+                    <h2 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1.4rem', letterSpacing: '0.4em', color: '#d4af37', marginBottom: '8px', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}>KOTTIVATTAM</h2>
+                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.6em', color: 'rgba(255,153,51,0.8)', textTransform: 'uppercase', marginBottom: '16px' }}>Awakening the Divine</p>
                 </div>
                 <div className="preloader-text-2" style={{ opacity: 0, transform: 'translateY(15px)' }}>
-                    <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '0.85rem', color: 'rgba(253,245,230,0.5)', letterSpacing: '0.1em' }}>Tradition Reborn • Wisdom Eternal</p>
+                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '0.85rem', color: 'rgba(253,245,230,0.5)', letterSpacing: '0.1em' }}>Tradition Reborn • Wisdom Eternal</p>
                 </div>
             </div>
 

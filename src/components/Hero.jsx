@@ -194,7 +194,7 @@ export default function Hero({ isLoaded }) {
                                 ref={el => charsRef.current[i] = el}
                                 style={{
                                     display: 'inline-block',
-                                    fontFamily: "'Playfair Display', serif",
+                                    fontFamily: "'Noto Serif Malayalam', serif",
                                     fontWeight: 700,
                                     fontSize: 'clamp(3rem, 10vw, 7.5rem)',
                                     lineHeight: 0.95,
@@ -215,7 +215,7 @@ export default function Hero({ isLoaded }) {
                     </span>
 
                     <span ref={subtitleRef} style={{
-                        fontFamily: "'Cinzel', serif", fontWeight: 400,
+                        fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 400,
                         fontSize: 'clamp(0.7rem, 2.5vw, 1.3rem)', letterSpacing: '1.2em',
                         textTransform: 'uppercase', color: 'rgba(212,175,55,0.9)',
                         marginTop: '12px', display: 'block', opacity: 0,
@@ -231,7 +231,7 @@ export default function Hero({ isLoaded }) {
                     <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.6), transparent)' }} />
                 </div>
 
-                <p ref={bodyRef} style={{ margin: '0 auto 44px', fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'rgba(253,245,230,0.85)', maxWidth: '600px', lineHeight: 1.9, fontFamily: "'Playfair Display', serif", fontStyle: 'italic', opacity: 0 }}>
+                <p ref={bodyRef} style={{ margin: '0 auto 44px', fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'rgba(253,245,230,0.85)', maxWidth: '600px', lineHeight: 1.9, fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', opacity: 0 }}>
                     A timeless sanctuary of Vedic tradition and architectural majesty. Welcome to the living heritage of ancient Kerala.
                 </p>
 
@@ -247,7 +247,7 @@ export default function Hero({ isLoaded }) {
 
             {/* Scroll indicator */}
             <div style={{ position: 'absolute', bottom: '80px', left: '50%', transform: 'translateX(-50%)', zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontFamily: "'Outfit', sans-serif", fontSize: '0.65rem', letterSpacing: '0.3em', color: 'rgba(253,245,230,0.4)', textTransform: 'uppercase' }}>Scroll</span>
+                <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.3em', color: 'rgba(253,245,230,0.4)', textTransform: 'uppercase' }}>Scroll</span>
                 <div style={{ width: '1px', height: '48px', background: 'linear-gradient(180deg, rgba(212,175,55,0.6), transparent)', animation: 'float 2s ease-in-out infinite' }} />
             </div>
 
@@ -256,7 +256,7 @@ export default function Hero({ isLoaded }) {
                 <div ref={marqueeRef} style={{ display: 'flex', gap: '48px', whiteSpace: 'nowrap', width: 'max-content' }}>
                     {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
                         <span key={i} style={{
-                            fontFamily: "'Cinzel', serif", fontSize: '0.72rem', letterSpacing: '0.25em',
+                            fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.72rem', letterSpacing: '0.25em',
                             textTransform: 'uppercase',
                             color: item === '✦' ? '#ff9933' : 'rgba(212,175,55,0.65)',
                         }}>

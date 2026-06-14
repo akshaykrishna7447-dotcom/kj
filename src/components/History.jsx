@@ -149,7 +149,7 @@ export default function History() {
                                 {/* Large number */}
                                 <div ref={el => numberRefs.current[i] = el} style={{
                                     position: 'absolute', bottom: '16px', left: '24px',
-                                    fontFamily: "'Cinzel', serif", fontWeight: 700,
+                                    fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700,
                                     fontSize: 'clamp(5rem, 10vw, 9rem)',
                                     color: '#ff9933', opacity: 0.08, lineHeight: 1,
                                     userSelect: 'none',
@@ -163,19 +163,19 @@ export default function History() {
                                 <div ref={el => textRefs.current[i] = el}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
                                         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ff9933', boxShadow: '0 0 12px rgba(255,153,51,0.9)', flexShrink: 0 }} />
-                                        <span style={{ fontFamily: "'Cinzel', serif", fontSize: '0.85rem', letterSpacing: '0.4em', color: '#d4af37' }}>{item.year}</span>
+                                        <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.85rem', letterSpacing: '0.4em', color: '#d4af37' }}>{item.year}</span>
                                     </div>
-                                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: '#fdf5e6', marginBottom: '20px', lineHeight: 1.15 }}>
+                                    <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', color: '#fdf5e6', marginBottom: '20px', lineHeight: 1.15 }}>
                                         {item.title}
                                     </h3>
                                     <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, #ff9933, transparent)', marginBottom: '20px' }} />
-                                    <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: '1.05rem', lineHeight: 1.85, color: 'rgba(253,245,230,0.75)', maxWidth: '420px' }}>
+                                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '1.05rem', lineHeight: 1.85, color: 'rgba(253,245,230,0.75)', maxWidth: '420px' }}>
                                         {item.body}
                                     </p>
                                 </div>
 
                                 {/* Card counter */}
-                                <div style={{ position: 'absolute', bottom: '32px', right: '40px', fontFamily: "'Cinzel', serif", fontSize: '0.7rem', letterSpacing: '0.2em', color: 'rgba(212,175,55,0.4)' }}>
+                                <div style={{ position: 'absolute', bottom: '32px', right: '40px', fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', letterSpacing: '0.2em', color: 'rgba(212,175,55,0.4)' }}>
                                     {String(i + 1).padStart(2, '0')} / {String(timelineData.length).padStart(2, '0')}
                                 </div>
                             </div>

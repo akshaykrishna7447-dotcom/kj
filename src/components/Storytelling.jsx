@@ -107,7 +107,7 @@ export default function Storytelling() {
                                     <span className="section-eyebrow" style={{ marginBottom: '20px', letterSpacing: '0.45em', color: '#ff9933' }}>{scene.label}</span>
 
                                     {/* Large quote — split into separate els for individual animation */}
-                                    <blockquote className="story-quote" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)', color: '#fdf5e6', lineHeight: 1.25, marginBottom: '24px', marginTop: '14px', textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}>
+                                    <blockquote className="story-quote" style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)', color: '#fdf5e6', lineHeight: 1.25, marginBottom: '24px', marginTop: '14px', textShadow: '0 4px 20px rgba(0,0,0,0.9)' }}>
                                         {scene.quote}
                                     </blockquote>
 
@@ -121,7 +121,7 @@ export default function Storytelling() {
                         </div>
 
                         {/* Scene counter */}
-                        <div style={{ position: 'absolute', bottom: '40px', right: '48px', zIndex: 5, fontFamily: "'Cinzel', serif", fontSize: '0.7rem', letterSpacing: '0.25em', color: 'rgba(212,175,55,0.4)' }}>
+                        <div style={{ position: 'absolute', bottom: '40px', right: '48px', zIndex: 5, fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', letterSpacing: '0.25em', color: 'rgba(212,175,55,0.4)' }}>
                             {String(i + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}
                         </div>
                     </div>
