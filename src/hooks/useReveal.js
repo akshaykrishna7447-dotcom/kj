@@ -23,13 +23,13 @@ export function useRevealAnimations() {
             onEnter: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, y: 50, scale: 0.98 },
-                    { opacity: 1, y: 0, scale: 1, duration: 1.2, stagger: 0.08, ease: 'power3.out', overwrite: true }
+                    { opacity: 1, y: 0, scale: 1, duration: 1.6, stagger: 0.1, ease: 'expo.out', overwrite: true }
                 );
             },
             onEnterBack: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, y: -50, scale: 0.98 },
-                    { opacity: 1, y: 0, scale: 1, duration: 1.2, stagger: 0.08, ease: 'power3.out', overwrite: true }
+                    { opacity: 1, y: 0, scale: 1, duration: 1.6, stagger: 0.1, ease: 'expo.out', overwrite: true }
                 );
             },
             start: 'top 90%',
@@ -41,7 +41,7 @@ export function useRevealAnimations() {
             onEnter: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, x: -60 },
-                    { opacity: 1, x: 0, duration: 1.0, stagger: 0.12, ease: 'power2.out', overwrite: true }
+                    { opacity: 1, x: 0, duration: 1.4, stagger: 0.15, ease: 'expo.out', overwrite: true }
                 );
             },
             start: 'top 92%',
@@ -53,7 +53,7 @@ export function useRevealAnimations() {
             onEnter: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, x: 60 },
-                    { opacity: 1, x: 0, duration: 1.0, stagger: 0.12, ease: 'power2.out', overwrite: true }
+                    { opacity: 1, x: 0, duration: 1.4, stagger: 0.15, ease: 'expo.out', overwrite: true }
                 );
             },
             start: 'top 92%',
@@ -65,13 +65,13 @@ export function useRevealAnimations() {
             onEnter: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, scale: 0.85 },
-                    { opacity: 1, scale: 1, duration: 1.4, stagger: 0.1, ease: 'power3.out', overwrite: true }
+                    { opacity: 1, scale: 1, duration: 1.8, stagger: 0.15, ease: 'expo.out', overwrite: true }
                 );
             },
             onEnterBack: (elements) => {
                 gsap.fromTo(elements,
                     { opacity: 0, scale: 0.85 },
-                    { opacity: 1, scale: 1, duration: 1.4, stagger: 0.1, ease: 'power3.out', overwrite: true }
+                    { opacity: 1, scale: 1, duration: 1.8, stagger: 0.15, ease: 'expo.out', overwrite: true }
                 );
             },
             start: 'top 92%',
