@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @import '@fontsource/cinzel/400.css';
 @import '@fontsource/cinzel/600.css';
 @import '@fontsource/cinzel/700.css';
@@ -9,11 +11,6 @@
 @import '@fontsource/outfit/500.css';
 @import '@fontsource/noto-serif-malayalam/400.css';
 @import '@fontsource/noto-serif-malayalam/700.css';
-
-@import '@fontsource/noto-serif-malayalam/400.css';
-@import '@fontsource/noto-serif-malayalam/700.css';
-
-@import "tailwindcss";
 
 /* ═══════════════════════════════════════════
    CUSTOM LOCAL FONTS (Nehana by Kenrichi)
@@ -38,6 +35,7 @@
   --color-saffron-dark: #cc4400;
   --color-kumkum: #fdf5e6;
   --color-kumkum-deep: #3d0c02;
+  --color-maroon-deep: #0d0202;
   --color-bg-dark: #140502;
   --color-sandal: #fdf5e6;
   --color-sandal-dim: #ebd2a9;

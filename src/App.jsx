@@ -102,7 +102,7 @@ export default function App() {
   }, [isLoaded]);
 
   return (
-    <div className="relative bg-maroon-deep min-h-screen">
+    <div style={{ position: 'relative', backgroundColor: '#0d0202', minHeight: '100vh' }}>
       {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
       <GoldenCursor />
       <Navbar />

@@ -19,13 +19,12 @@ export default function Preloader({ onComplete }) {
                 }
             });
 
-            tl.to('.preloader-om', { opacity: 1, scale: 1, duration: 1.8, ease: 'power2.out' })
-                .to('.preloader-glow', { opacity: 0.6, scale: 1.5, duration: 3, ease: 'sine.inOut' }, 0)
+            tl.to('.preloader-glow', { opacity: 0.6, scale: 1.5, duration: 3, ease: 'sine.inOut' })
                 .to('.preloader-text-1', { opacity: 1, y: 0, duration: 1.2, ease: 'power2.out' }, '-=1.0')
                 .to('.preloader-text-2', { opacity: 1, y: 0, duration: 1.2, ease: 'power2.out' }, '-=0.8')
                 .to('.preloader-bar-fill', { scaleX: 1, duration: 2.5, ease: 'power3.inOut' }, '-=1.4')
                 .to({}, { duration: 0.6 }) // hold for resonance
-                .to(['.preloader-om', '.preloader-text-1', '.preloader-text-2', '.preloader-bar', '.preloader-glow'], { opacity: 0, y: -40, duration: 1, ease: 'expo.in' })
+                .to(['.preloader-text-1', '.preloader-text-2', '.preloader-bar', '.preloader-glow'], { opacity: 0, y: -40, duration: 1, ease: 'expo.in' })
                 .to(containerRef.current, { yPercent: -100, duration: 1.5, ease: 'expo.inOut' }, '-=0.3');
 
         }, containerRef);
