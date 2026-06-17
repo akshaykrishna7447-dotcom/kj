@@ -1,150 +1,76 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { useMagnetic } from '../hooks/useMagnetic';
 gsap.registerPlugin(ScrollTrigger);
 
-const DUST_PARTICLES = Array.from({ length: 15 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 16 }, (_, i) => ({
     id: i,
-    left: `${(i * 7.3 + 3) % 100}%`,
-    top: `${(i * 13.7 + 5) % 100}%`,
-    width: `${1 + (i % 3) * 0.7}px`,
-    height: `${1 + (i % 3) * 0.7}px`,
-    opacity: 0.25 + (i % 5) * 0.06,
-    animDuration: `${10 + (i % 6) * 2.5}s`,
-    animDelay: `${(i % 8) * 1.1}s`,
+    left:  `${(i * 5.7 + 3) % 100}%`,
+    top:   `${(i * 13.3 + 6) % 100}%`,
+    size:  `${1.2 + (i % 3) * 0.8}px`,
+    opacity: 0.3 + (i % 5) * 0.07,
+    dur:  `${9 + (i % 7) * 2.5}s`,
+    delay:`${(i % 9) * 1.3}s`,
+    color: i % 2 === 0 ? '#C9921A' : '#E8C96A',
 }));
 
-const SMOKE_PARTICLES = Array.from({ length: 10 }, (_, i) => ({
-    id: i,
-    left: `${(i * 11.3 + 2) % 100}%`,
-    size: `${22 + (i % 4) * 8}px`,
-    animDuration: `${6 + (i % 4) * 1}s`,
-    animDelay: `${(i % 5) * 1.2}s`,
-}));
-
-// Marquee items for the bottom strip
-const MARQUEE_ITEMS = [
-    'Ganapathi Homam', '✦', 'Sudarshana Homam', '✦',
-    'Bhagavathy Pooja', '✦', 'Navagraha Pooja', '✦',
-    'Ayushya Homam', '✦', 'Satyanarayana Katha', '✦',
-    'Ganapathi Homam', '✦', 'Sudarshana Homam', '✦',
-    'Bhagavathy Pooja', '✦', 'Navagraha Pooja', '✦',
+const MARQUEE = [
+    'Authentic Heritage','✦','Vedic Tradition','✦',
+    'Sacred Rituals','✦','Divine Grace','✦',
+    'Kerala Architecture','✦','Spiritual Sanctuary','✦',
+    'Authentic Heritage','✦','Vedic Tradition','✦',
 ];
 
 export default function Hero({ isLoaded }) {
-    const heroRef = useRef(null);
-    const bgRef = useRef(null);
+    const heroRef    = useRef(null);
+    const bgRef      = useRef(null);
     const contentRef = useRef(null);
     const marqueeRef = useRef(null);
-    const charsRef = useRef([]);
-    const subtitleRef = useRef(null);
-    const bodyRef = useRef(null);
-    const ctaRef = useRef(null);
+    const charsRef   = useRef([]);
+    const subtitleRef= useRef(null);
+    const bodyRef    = useRef(null);
+    const ctaRef     = useRef(null);
     const dividerRef = useRef(null);
+    const magneticBtn1 = useMagnetic({ strength: 0.3, radius: 100 });
+    const magneticBtn2 = useMagnetic({ strength: 0.3, radius: 100 });
 
     useEffect(() => {
         if (!isLoaded) return;
-
         const ctx = gsap.context(() => {
-            // ── ENTRANCE: staggered char reveal ──────────────────────────
             const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
             tl.fromTo(charsRef.current,
                 { yPercent: 110, opacity: 0, rotateX: -60, skewX: 8 },
-                {
-                    yPercent: 0, opacity: 1, rotateX: 0, skewX: 0,
-                    duration: 1.1, stagger: 0.055,
-                    transformOrigin: 'bottom center',
-                }
+                { yPercent: 0, opacity: 1, rotateX: 0, skewX: 0, duration: 1.1, stagger: 0.055, transformOrigin: 'bottom center' }
             )
-                .fromTo(subtitleRef.current,
-                    { opacity: 0, letterSpacing: '3em', y: 10 },
-                    { opacity: 1, letterSpacing: '1.2em', y: 0, duration: 1.2 },
-                    '-=0.5'
-                )
-                .fromTo(dividerRef.current,
-                    { scaleX: 0, opacity: 0 },
-                    { scaleX: 1, opacity: 1, duration: 0.8, ease: 'expo.out' },
-                    '-=0.6'
-                )
-                .fromTo(bodyRef.current,
-                    { opacity: 0, y: 20 },
-                    { opacity: 1, y: 0, duration: 1 },
-                    '-=0.5'
-                )
-                .fromTo(ctaRef.current,
-                    { opacity: 0, y: 16, scale: 0.95 },
-                    { opacity: 1, y: 0, scale: 1, duration: 0.8 },
-                    '-=0.6'
-                );
-
-            // ── SCROLL PIN ────────────────────────────────────────────────
-            ScrollTrigger.create({
-                trigger: heroRef.current,
-                start: 'top top',
-                end: '+=100%',
-                pin: true,
-                pinSpacing: false,
-            });
-
-            // ── BG PARALLAX ───────────────────────────────────────────────
-            gsap.fromTo(bgRef.current,
-                { yPercent: 0, scale: 1 },
-                {
-                    yPercent: 18,
-                    scale: 1.22,
-                    ease: 'none',
-                    force3D: true,
-                    scrollTrigger: {
-                        trigger: heroRef.current,
-                        start: 'top top',
-                        end: '+=100%',
-                        scrub: 1,
-                    }
-                }
+            .fromTo(subtitleRef.current,
+                { opacity: 0, letterSpacing: '3em', y: 10 },
+                { opacity: 1, letterSpacing: '1.2em', y: 0, duration: 1.2 }, '-=0.5'
+            )
+            .fromTo(dividerRef.current,
+                { scaleX: 0, opacity: 0 },
+                { scaleX: 1, opacity: 1, duration: 0.8, ease: 'expo.out' }, '-=0.6'
+            )
+            .fromTo(bodyRef.current,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 1 }, '-=0.5'
+            )
+            .fromTo(ctaRef.current,
+                { opacity: 0, y: 16, scale: 0.95 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.8 }, '-=0.6'
             );
 
-            // Subtle breathing
-            gsap.to(bgRef.current, {
-                scale: '+=0.007',
-                duration: 8,
-                repeat: -1, yoyo: true, ease: 'sine.inOut', force3D: true,
-            });
+            ScrollTrigger.create({ trigger: heroRef.current, start: 'top top', end: '+=100%', pin: true, pinSpacing: false });
 
-            // ── GOD RAYS ──────────────────────────────────────────────────
-            gsap.to('.god-ray', {
-                opacity: (i) => 0.04 + (i % 5) * 0.03,
-                duration: (i) => 3 + (i % 4),
-                repeat: -1, yoyo: true, ease: 'sine.inOut',
-                stagger: { amount: 1.5, from: 'random' },
-            });
-            gsap.to('.god-rays-container', {
-                rotate: '0.4deg', duration: 20, repeat: -1, yoyo: true, ease: 'sine.inOut', force3D: true,
-            });
-
-            // ── CONTENT SCROLL-OUT ────────────────────────────────────────
-            gsap.fromTo(contentRef.current,
-                { y: -50, opacity: 1 },
-                {
-                    y: -130, opacity: 0, scale: 0.97, ease: 'none',
-                    scrollTrigger: {
-                        trigger: heroRef.current,
-                        start: 'top top',
-                        end: '+=80%',
-                        scrub: 1,
-                    }
-                }
-            );
-
-            // ── MARQUEE ───────────────────────────────────────────────────
-            gsap.to(marqueeRef.current, {
-                xPercent: -50,
-                ease: 'none',
-                duration: 22,
-                repeat: -1,
-            });
-
+            gsap.fromTo(bgRef.current, { yPercent: 0, scale: 1 },
+                { yPercent: 18, scale: 1.22, ease: 'none', force3D: true,
+                  scrollTrigger: { trigger: heroRef.current, start: 'top top', end: '+=100%', scrub: 1 } });
+            gsap.to(bgRef.current, { scale: '+=0.007', duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut', force3D: true });
+            gsap.fromTo(contentRef.current, { y: -15, opacity: 1 },
+                { y: -130, opacity: 0, scale: 0.97, ease: 'none',
+                  scrollTrigger: { trigger: heroRef.current, start: 'top top', end: '+=80%', scrub: 1 } });
+            gsap.to(marqueeRef.current, { xPercent: -50, ease: 'none', duration: 22, repeat: -1 });
         }, heroRef);
 
         return () => ctx.revert();
@@ -155,7 +81,7 @@ export default function Hero({ isLoaded }) {
     return (
         <section id="hero" ref={heroRef} style={{ height: '100vh', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
-            {/* Background */}
+            {/* Background image */}
             <div ref={bgRef} style={{
                 position: 'absolute', inset: -40,
                 backgroundImage: 'url(/temple.png)',
@@ -164,121 +90,98 @@ export default function Hero({ isLoaded }) {
                 willChange: 'transform', transform: 'translateZ(0)',
             }} />
 
-            {/* God Rays */}
-            <div className="god-rays-container" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', transformOrigin: 'top center', zIndex: 1, filter: 'blur(30px)', willChange: 'transform' }}>
-                {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={`ray-${i}`} className="god-ray"
-                        style={{
-                            position: 'absolute', top: '-10%', left: `${10 + i * 14}%`,
-                            width: '100px', height: '150%',
-                            background: 'linear-gradient(90deg, transparent, rgba(255,153,51,0.07), transparent)',
-                            transform: `rotate(${20 + i * 4}deg)`, opacity: 0.1, willChange: 'opacity',
-                        }}
-                    />
-                ))}
-            </div>
+            {/* Warm brown-gold overlay — not pure black, warm toned */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(42,18,6,0.5) 0%, rgba(42,18,6,0.25) 45%, rgba(42,18,6,0.88) 100%)', zIndex: 2 }} />
+            {/* Warm gold radial centre glow */}
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 50% at 50% 55%, rgba(201,146,26,0.12) 0%, transparent 70%)', zIndex: 2 }} />
+            {/* Side vignette */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(42,18,6,0.7) 0%, transparent 30%, transparent 70%, rgba(42,18,6,0.7) 100%)', zIndex: 2 }} />
 
-            {/* Vignette */}
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, transparent 0%, rgba(20,5,2,0.55) 100%)', zIndex: 2 }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,5,2,0.15) 0%, rgba(20,5,2,0.35) 80%, #140502 100%)', zIndex: 2 }} />
+            {/* Warm gold top lintel */}
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9921A, #E8C96A, #C9921A, transparent)', zIndex: 10 }} />
 
-            {/* HERO CONTENT */}
+            {/* Hero content */}
             <div ref={contentRef} style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1200px', width: '100%', padding: '0 32px', transform: 'translateY(-15px)' }}>
 
-                {/* KOTTIVATTAM — char-split reveal */}
                 <h1 style={{ display: 'flex', flexDirection: 'column', gap: '4px', overflow: 'visible' }}>
                     <span style={{ display: 'flex', justifyContent: 'center', gap: '0.06em', overflow: 'hidden', paddingBottom: '0.08em' }}>
                         {letters.map((char, i) => (
-                            <span
-                                key={i}
-                                ref={el => charsRef.current[i] = el}
-                                style={{
-                                    display: 'inline-block',
-                                    fontFamily: "'Nehana', 'Noto Serif Malayalam', serif",
-                                    fontWeight: 'normal',
-                                    fontSize: 'clamp(3rem, 10vw, 7.5rem)',
-                                    lineHeight: 0.95,
-                                    background: 'linear-gradient(135deg, #d4af37 0%, #d4af37 40%, #ff9933 70%, #fff6e0 100%)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text',
-                                    textShadow: 'none',
-                                    willChange: 'transform',
-                                    transformStyle: 'preserve-3d',
-                                    opacity: 0,
-                                }}
-                            >
-                                {char}
-                            </span>
+                            <span key={i} ref={el => charsRef.current[i] = el} style={{
+                                display: 'inline-block',
+                                fontFamily: "'Nehana','Noto Serif Malayalam',serif",
+                                fontWeight: 'normal',
+                                fontSize: 'clamp(3rem, 10vw, 7.5rem)',
+                                lineHeight: 0.95,
+                                background: 'linear-gradient(180deg, #F0D98A 0%, #E8C96A 40%, #C9921A 80%, #9A6E10 100%)',
+                                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                                filter: 'drop-shadow(0 4px 16px rgba(201,146,26,0.35))',
+                                willChange: 'transform', transformStyle: 'preserve-3d', opacity: 0,
+                            }}>{char}</span>
                         ))}
                     </span>
 
                     <span ref={subtitleRef} style={{
-                        fontFamily: "'Nehana', 'Noto Serif Malayalam', serif", fontWeight: 'normal',
-                        fontSize: 'clamp(0.7rem, 2.5vw, 1.3rem)', letterSpacing: '1.2em',
-                        textTransform: 'uppercase', color: 'rgba(212,175,55,0.9)',
-                        marginTop: '12px', display: 'block', opacity: 0,
-                        textShadow: '0 2px 20px rgba(0,0,0,0.9)',
-                        marginRight: '-1.2em',
-                    }}>
-                        ILLAM
-                    </span>
+                        fontFamily: "'Manrope',sans-serif", fontWeight: 500,
+                        fontSize: 'clamp(0.6rem, 2vw, 1rem)', letterSpacing: '1.2em',
+                        textTransform: 'uppercase', color: 'rgba(232,201,106,0.85)',
+                        marginTop: '12px', display: 'block', opacity: 0, marginRight: '-1.2em',
+                    }}>ILLAM</span>
                 </h1>
 
-                <div ref={dividerRef} style={{ maxWidth: '400px', margin: '36px auto', display: 'flex', alignItems: 'center', gap: '20px', transformOrigin: 'center' }}>
-                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.6))' }} />
-                    <span style={{ color: '#d4af37', fontSize: '1.2rem', filter: 'drop-shadow(0 0 10px rgba(255,153,51,0.7))' }}>✦</span>
-                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.6), transparent)' }} />
+                <div ref={dividerRef} style={{ maxWidth: '420px', margin: '34px auto', display: 'flex', alignItems: 'center', gap: '20px', transformOrigin: 'center' }}>
+                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.75))' }} />
+                    <span style={{ fontSize: '1.2rem', filter: 'drop-shadow(0 0 10px rgba(201,146,26,0.9))', animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
+                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(201,146,26,0.75), transparent)' }} />
                 </div>
 
-                <p ref={bodyRef} style={{ margin: '0 auto 44px', fontSize: 'clamp(1rem, 2vw, 1.25rem)', color: 'rgba(253,245,230,0.85)', maxWidth: '600px', lineHeight: 1.9, fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', opacity: 0 }}>
-                    A timeless sanctuary of Vedic tradition and architectural majesty. Welcome to the living heritage of ancient Kerala.
+                <div ref={dividerRef} className="temple-divider" style={{ opacity: 0, margin: '24px auto', width: '200px' }}>
+                    <span className="temple-ornament">✦</span>
+                </div>
+
+                <p ref={bodyRef} className="hero-subtitle" style={{ maxWidth: '600px', margin: '0 auto 40px', color: '#FDF4E3', textShadow: '0 2px 12px rgba(0,0,0,0.9)', opacity: 0 }}>
+                    കേരളത്തിന്റെ പ്രാചീന വൈദിക പൈതൃകം അചഞ്ചലമായ ഭക്തിയിലൂടെയും കാലാതീതമായ ആചാരങ്ങളിലൂടെയും കാത്തുസൂക്ഷിക്കുന്നു.
                 </p>
 
                 <div ref={ctaRef} style={{ display: 'flex', justifyContent: 'center', gap: '16px', opacity: 0 }}>
-                    <a href="#contact" className="btn-gold" onClick={(e) => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                        Offer Worship
-                    </a>
-                    <a href="#illam" className="btn-outline-gold" onClick={(e) => { e.preventDefault(); document.querySelector('#illam')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                        Explore Heritage
-                    </a>
+                    <div ref={magneticBtn1}>
+                        <a href="#contact" className="btn-gold" onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                            🙏 വഴിപാട് അർപ്പിക്കുക
+                        </a>
+                    </div>
+                    <div ref={magneticBtn2}>
+                        <a href="#illam" className="btn-outline-gold-dark" onClick={e => { e.preventDefault(); document.querySelector('#illam')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                            പൈതൃകം അറിയുക
+                        </a>
+                    </div>
                 </div>
             </div>
 
             {/* Scroll indicator */}
             <div style={{ position: 'absolute', bottom: '80px', left: '50%', transform: 'translateX(-50%)', zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.3em', color: 'rgba(253,245,230,0.4)', textTransform: 'uppercase' }}>Scroll</span>
-                <div style={{ width: '1px', height: '48px', background: 'linear-gradient(180deg, rgba(212,175,55,0.6), transparent)', animation: 'float 2s ease-in-out infinite' }} />
+                <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.6rem', letterSpacing: '0.3em', color: 'rgba(201,146,26,0.65)', textTransform: 'uppercase' }}>Scroll</span>
+                <div style={{ width: '1px', height: '46px', background: 'linear-gradient(180deg, rgba(201,146,26,0.7), transparent)', animation: 'float 2s ease-in-out infinite' }} />
             </div>
 
-            {/* Gold marquee strip at the bottom */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 20, overflow: 'hidden', borderTop: '1px solid rgba(212,175,55,0.15)', background: 'rgba(20,5,2,0.6)', padding: '12px 0' }}>
+            {/* Marquee strip — warm parchment */}
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 20, overflow: 'hidden', borderTop: '1px solid rgba(201,146,26,0.25)', background: 'rgba(42,18,6,0.88)', padding: '10px 0' }}>
                 <div ref={marqueeRef} style={{ display: 'flex', gap: '48px', whiteSpace: 'nowrap', width: 'max-content' }}>
-                    {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+                    {[...MARQUEE, ...MARQUEE].map((item, i) => (
                         <span key={i} style={{
-                            fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.72rem', letterSpacing: '0.25em',
-                            textTransform: 'uppercase',
-                            color: item === '✦' ? '#ff9933' : 'rgba(212,175,55,0.65)',
-                        }}>
-                            {item}
-                        </span>
+                            fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.67rem', letterSpacing: '0.25em', textTransform: 'uppercase',
+                            color: item === '✦' ? '#C9921A' : 'rgba(242,235,220,0.55)',
+                        }}>{item}</span>
                     ))}
                 </div>
             </div>
 
-            {/* Dust particles */}
-            {DUST_PARTICLES.map((p) => (
-                <div key={`dust-${p.id}`} className="particle" style={{
-                    left: p.left, top: p.top,
-                    width: p.width, height: p.height, opacity: p.opacity,
-                    animation: `float ${p.animDuration} linear infinite`,
-                    animationDelay: p.animDelay, zIndex: 3, willChange: 'transform',
-                }} />
-            ))}
-            {SMOKE_PARTICLES.map((p) => (
-                <div key={`smoke-${p.id}`} className="smoke-particle" style={{
-                    left: p.left, bottom: '-20px', width: p.size, height: p.size,
-                    animationDuration: p.animDuration, animationDelay: p.animDelay, zIndex: 3,
+            {/* Warm gold particles */}
+            {PARTICLES.map(p => (
+                <div key={`p-${p.id}`} className="particle" style={{
+                    left: p.left, top: p.top, width: p.size, height: p.size,
+                    opacity: p.opacity, background: p.color,
+                    boxShadow: `0 0 6px ${p.color}`,
+                    animation: `float ${p.dur} linear infinite`,
+                    animationDelay: p.delay, zIndex: 3,
                 }} />
             ))}
         </section>

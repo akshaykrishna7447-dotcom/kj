@@ -1,41 +1,48 @@
 import { MessageCircle } from 'lucide-react';
-
-const navLinks = [
-    ['The Illam', '#illam'],
-    ['About Namboothiriji', '#about'],
-    ['Sacred Rituals', '#poojas'],
-    ['Gallery', '#gallery'],
-    ['Book a Pooja', '#contact'],
-];
-
 export default function Footer() {
     return (
-        <footer style={{ background: '#0a0201', borderTop: '1px solid rgba(255,153,51,0.15)', padding: '120px 0 60px', position: 'relative' }}>
-            <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
+        <footer style={{ background: '#2A1206', borderTop: '1px solid rgba(201,146,26,0.2)', padding: '100px 0 60px', position: 'relative', overflow: 'hidden' }}>
+            {/* Gold top border */}
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9921A, #E8C96A, #C9921A, transparent)' }} />
+
+            {/* Warm ambient glow */}
+            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '200px', background: 'radial-gradient(ellipse, rgba(201,146,26,0.08) 0%, transparent 70%)', pointerEvents: 'none', borderRadius: '50%' }} />
+
+            <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px', position: 'relative', zIndex: 10 }}>
                 {/* Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '48px', marginBottom: '56px' }}>
-                    {/* Brand & Address */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px,1fr))', gap: '48px', marginBottom: '56px' }}>
+                    {/* Brand */}
                     <div>
-                        <span className="om-ornament" style={{ fontSize: '2.2rem', display: 'block', marginBottom: '12px' }}></span>
-                        <h3 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700, fontSize: '1.1rem', color: '#fdf5e6', letterSpacing: '0.2em', marginBottom: '8px' }}>KOTTIVATTAM ILLAM</h3>
-                        <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.85rem', lineHeight: 1.6, color: 'rgba(253,245,230,0.7)', marginBottom: '20px' }}>
-                            Near Mahadeva Temple,<br />
-                            Eranhipalam, Calicut<br />
-                            Kerala, India - 673006
+                        <div style={{ marginBottom: '24px' }}>
+                            <span style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.4rem', letterSpacing: '0.22em', background: 'linear-gradient(135deg, #F0D98A, #E8C96A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'block', lineHeight: 1 }}>കൊട്ടിവട്ടം</span>
+                            <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.5em', color: 'rgba(232,201,106,0.7)', textTransform: 'uppercase' }}>ഇല്ലം</span>
+                        </div>
+                        <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.95rem', lineHeight: 1.8, color: 'rgba(242,235,220,0.7)', maxWidth: '300px', marginBottom: '32px' }}>
+                            വൈദിക പാരമ്പര്യത്തിന്റെയും ഭക്തിയുടെയും സേവനത്തിന്റെയും ജീവിക്കുന്ന പൈതൃകം.
                         </p>
-                        <p className="section-subtitle" style={{ fontSize: '0.88rem' }}>
-                            A living heritage of Vedic tradition, devotion, and divine service.
-                        </p>
+                            <div style={{ display: 'flex', gap: '16px' }}>
+                                <a href="#" style={{ color: 'rgba(232,201,106,0.5)', transition: 'color 0.3s ease' }} onMouseEnter={e => e.target.style.color = '#E8C96A'} onMouseLeave={e => e.target.style.color = 'rgba(232,201,106,0.5)'}>
+                                    <MessageCircle size={20} />
+                                </a>
+                            </div>
                     </div>
 
                     {/* Navigation */}
                     <div>
-                        <h4 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#d4af37', marginBottom: '28px' }}>Navigate</h4>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                            {navLinks.map(([label, href]) => (
-                                <a key={label} href={href} onClick={(e) => { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }); }}
-                                    className="nav-link" style={{ fontSize: '0.75rem', width: 'fit-content' }}>
-                                    {label}
+                        <h4 style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9921A', marginBottom: '26px' }}>വഴികാട്ടി</h4>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
+                            {[
+                                { name: 'പൈതൃകം', href: '#illam' },
+                                { name: 'കുറിച്ച്', href: '#about' },
+                                { name: 'പൂജകൾ', href: '#poojas' },
+                                { name: 'ചിത്രങ്ങൾ', href: '#gallery' },
+                            ].map(({ name, href }) => (
+                                <a key={name} href={href}
+                                    onClick={e => { e.preventDefault(); document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }); }}
+                                    style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.78rem', letterSpacing: '0.12em', color: 'rgba(242,235,220,0.65)', textDecoration: 'none', cursor: 'none', transition: 'color 0.3s ease' }}
+                                    onMouseEnter={e => e.target.style.color = '#E8C96A'}
+                                    onMouseLeave={e => e.target.style.color = 'rgba(242,235,220,0.65)'}>
+                                    {name}
                                 </a>
                             ))}
                         </div>
@@ -43,19 +50,20 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h4 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#d4af37', marginBottom: '28px' }}>Contact</h4>
+                        <h4 style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9921A', marginBottom: '26px' }}>ബന്ധപ്പെടാൻ</h4>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <div>
-                                <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(253,245,230,0.4)', marginBottom: '4px' }}>Phone / WhatsApp</p>
-                                <a href="tel:+919400000000" style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.85rem', color: 'rgba(253,245,230,0.85)', textDecoration: 'none', cursor: 'pointer' }}>+91 94000 00000</a>
+                                <p style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 600, fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,146,26,0.45)', marginBottom: '4px' }}>ഫോൺ / വാട്ട്‌സ്ആപ്പ്</p>
+                                <a href="tel:+919400000000" style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.85rem', color: 'rgba(242,235,220,0.8)', textDecoration: 'none' }}>+91 94000 00000</a>
                             </div>
                             <div>
-                                <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(253,245,230,0.4)', marginBottom: '4px' }}>Email</p>
-                                <a href="mailto:kottivattamillam@gmail.com" style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.85rem', color: 'rgba(253,245,230,0.85)', textDecoration: 'none', cursor: 'pointer' }}>kottivattamillam@gmail.com</a>
+                                <p style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 600, fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(201,146,26,0.45)', marginBottom: '4px' }}>ഇമെയിൽ</p>
+                                <a href="mailto:kottivattamillam@gmail.com" style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.85rem', color: 'rgba(242,235,220,0.8)', textDecoration: 'none' }}>info@kottivattamillam.com</a>
                             </div>
-                            <div style={{ marginTop: '8px' }}>
-                                <a href="https://wa.me/919400000000" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#ff9933', textDecoration: 'none', fontSize: '0.8rem', borderBottom: '1px solid rgba(255,153,51,0.3)', paddingBottom: '2px' }}>
-                                    <MessageCircle size={14} /> Message on WhatsApp
+                            <div style={{ marginTop: '6px' }}>
+                                <a href="https://wa.me/919400000000" target="_blank" rel="noopener noreferrer"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', color: '#E8C96A', textDecoration: 'none', fontSize: '0.78rem', fontWeight: 600, borderBottom: '1px solid rgba(232,201,106,0.3)', paddingBottom: '2px' }}>
+                                    <MessageCircle size={13} /> മെസ്സേജ് അയക്കുക
                                 </a>
                             </div>
                         </div>
@@ -63,35 +71,28 @@ export default function Footer() {
 
                     {/* Sacred verse */}
                     <div>
-                        <h4 style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#d4af37', marginBottom: '28px' }}>Sacred Verse</h4>
-                        <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '1.1rem', color: 'rgba(212,175,55,0.85)', marginBottom: '10px', textShadow: '0 0 10px rgba(255,153,51,0.3)' }}>
+                        <h4 style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 700, fontSize: '0.66rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#C9921A', marginBottom: '26px' }}>പവിത്ര ശ്ലോകം</h4>
+                        <p style={{ fontFamily: "'Noto Serif Malayalam',serif", fontStyle: 'italic', fontSize: '1.15rem', color: '#E8C96A', marginBottom: '10px' }}>
                             "അസതോ മാ സദ്ഗമയ"
                         </p>
-                        <p className="section-subtitle" style={{ fontSize: '0.85rem' }}>
-                            Lead me from ignorance to truth,<br />from darkness to light, from death to immortality.
-                        </p>
-                        <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.6rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(253,245,230,0.35)', marginTop: '16px' }}>
-                            — Brihadaranyaka Upanishad
+                        <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.86rem', lineHeight: 1.75, color: 'rgba(242,235,220,0.65)' }} dangerouslySetInnerHTML={{__html: 'അജ്ഞാനത്തിൽ നിന്ന് സത്യത്തിലേക്കും,<br />ഇരുളിൽ നിന്ന് വെളിച്ചത്തിലേക്കും, മരണത്തിൽ നിന്ന് അമരത്വത്തിലേക്കും എന്നെ നയിച്ചാലും.'}} />
+                        <p style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.58rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: 'rgba(242,235,220,0.28)', marginTop: '14px' }}>
+                            — ബൃഹദാരണ്യക ഉപനിഷത്ത്
                         </p>
                     </div>
                 </div>
 
                 {/* Divider */}
-                <div className="divider-gold" style={{ marginBottom: '32px' }} />
+                <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.3), transparent)', marginBottom: '30px' }} />
 
                 {/* Bottom */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
-                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.75rem', color: 'rgba(253,245,230,0.45)' }}>
-                        © {new Date().getFullYear()} Kottivattam Illam. All rights reserved.
+                <div style={{ borderTop: '1px solid rgba(201,146,26,0.15)', padding: '32px 32px 40px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '20px' }}>
+                    <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.85rem', color: 'rgba(242,235,220,0.5)' }}>
+                        © {new Date().getFullYear()} കൊട്ടിവട്ടം ഇല്ലം. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.
                     </p>
-                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.75rem', color: 'rgba(253,245,230,0.35)' }}>
-                        Crafted with devotion for a sacred legacy
+                    <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.85rem', color: 'rgba(242,235,220,0.5)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        ഒരു പുണ്യ പൈതൃകത്തിനായി ഭക്തിയോടെ നിർമ്മിച്ചത് <span style={{ color: '#C9921A' }}>✦</span>
                     </p>
-                    <a href="https://wa.me/919400000000?text=Namaskaram! I would like to enquire about a pooja." target="_blank" rel="noopener noreferrer"
-                        style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#d4af37', textDecoration: 'none', cursor: 'none' }}>
-                        <MessageCircle size={15} />
-                        <span style={{ fontFamily: "'Noto Serif Malayalam', serif", fontSize: '0.72rem', letterSpacing: '0.15em' }}>WhatsApp Us</span>
-                    </a>
                 </div>
             </div>
         </footer>

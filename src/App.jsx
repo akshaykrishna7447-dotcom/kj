@@ -10,12 +10,10 @@ import About from './components/About';
 import Poojas from './components/Poojas';
 import Storytelling from './components/Storytelling';
 import Gallery from './components/Gallery';
-import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
 // Gold cursor follower — fully ref-based, zero state, zero re-renders
@@ -25,24 +23,25 @@ function GoldenCursor() {
   const pos = useRef({ x: 0, y: 0 });
   const ring = useRef({ x: 0, y: 0 });
   const isHovering = useRef(false);
+  const particles = useRef([]);
+  const particleContainer = useRef(null);
 
   useEffect(() => {
+    let rafId = null;
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
-      if (dotRef.current) {
-        const scale = isHovering.current ? 3.5 : 1;
-        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) scale(${scale})`;
-        dotRef.current.style.mixBlendMode = isHovering.current ? 'difference' : 'normal';
+      
+      // Throttle DOM updates to requestAnimationFrame
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          if (dotRef.current) {
+            const scale = isHovering.current ? 3.5 : 1;
+            dotRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) scale(${scale})`;
+            dotRef.current.style.mixBlendMode = isHovering.current ? 'difference' : 'normal';
+          }
+          rafId = null;
+        });
       }
-
-      // Mouse glow on glass cards — query only visible cards
-      document.querySelectorAll('.glass-card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        // Skip cards outside the viewport to avoid layout thrashing
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-      });
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -80,6 +79,7 @@ function GoldenCursor() {
 
   return (
     <>
+      <div id="cursor-particle-container" ref={particleContainer} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 9999998 }} />
       <div id="cursor-dot" ref={dotRef} />
       <div id="cursor-ring" ref={ringRef} />
     </>
@@ -102,7 +102,8 @@ export default function App() {
   }, [isLoaded]);
 
   return (
-    <div style={{ position: 'relative', backgroundColor: '#0d0202', minHeight: '100vh' }}>
+    <>
+      <div style={{ position: 'relative', backgroundColor: '#0d0202', minHeight: '100vh' }}>
       {!isLoaded && <Preloader onComplete={() => setIsLoaded(true)} />}
       <GoldenCursor />
       <Navbar />
@@ -113,10 +114,10 @@ export default function App() {
         <Poojas />
         <Storytelling />
         <Gallery />
-        <Testimonials />
         <Booking />
       </main>
       <Footer />
-    </div>
+      </div>
+    </>
   );
 }
