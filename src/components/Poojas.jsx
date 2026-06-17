@@ -33,7 +33,7 @@ function TiltCard({ children, style }) {
     const onMouseLeave = () => gsap.to(cardRef.current, { rotateY: 0, rotateX: 0, scale: 1, z: 0, duration: 0.6, ease: 'elastic.out(1,0.5)', transformPerspective: 900 });
     return (
         <div ref={cardRef} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} style={{ ...style, transformStyle: 'preserve-3d', willChange: 'transform' }}>
-            <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1, borderRadius: 'inherit', background: 'radial-gradient(circle at var(--tilt-x,50%) var(--tilt-y,50%), rgba(201,146,26,0.1) 0%, transparent 60%)' }} />
+            <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1, borderRadius: 'inherit', background: 'radial-gradient(circle at var(--tilt-x,50%) var(--tilt-y,50%), var(--gold-subtle) 0%, transparent 60%)' }} />
             {children}
         </div>
     );
@@ -59,13 +59,13 @@ export default function Poojas() {
     }, []);
 
     return (
-        <section id="poojas" ref={sectionRef} style={{ position: 'relative', padding: '120px 0', background: '#FDFAF4', overflow: 'hidden' }}>
+        <section id="poojas" ref={sectionRef} style={{ position: 'relative', padding: '120px 0', background: 'var(--parchment)', overflow: 'hidden' }}>
             {/* Parchment texture */}
             <div className="parchment-texture" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.4), transparent)' }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, var(--gold-border-hi), transparent)' }} />
 
             {/* Warm gold ambient */}
-            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '900px', height: '700px', background: 'radial-gradient(ellipse, rgba(201,146,26,0.07) 0%, transparent 70%)', pointerEvents: 'none', borderRadius: '50%' }} />
+            <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '900px', height: '700px', background: 'radial-gradient(ellipse, rgba(181,149,86,0.07) 0%, transparent 70%)', pointerEvents: 'none', borderRadius: '50%' }} />
 
             <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
                 {/* Header */}
@@ -83,28 +83,28 @@ export default function Poojas() {
                         <TiltCard key={i} style={{
                             padding: '38px 32px', display: 'flex', flexDirection: 'column',
                             position: 'relative', overflow: 'hidden',
-                            background: '#FDFAF4',
-                            border: '1px solid rgba(201,146,26,0.28)',
-                            boxShadow: '0 10px 40px rgba(42,18,6,0.07)',
+                            background: 'var(--cream)',
+                            border: '1px solid rgba(181,149,86,0.28)',
+                            boxShadow: '0 10px 40px rgba(21,12,7,0.07)',
                         }}>
                             <div ref={el => cardRefs.current[i] = el} style={{ position: 'absolute', inset: 0 }} />
 
                             {/* Gold corner ornaments */}
-                            <div style={{ position: 'absolute', top: 0, left: 0, width: '30px', height: '30px', borderTop: '1.5px solid rgba(201,146,26,0.6)', borderLeft: '1.5px solid rgba(201,146,26,0.6)' }} />
-                            <div style={{ position: 'absolute', top: 0, right: 0, width: '30px', height: '30px', borderTop: '1.5px solid rgba(201,146,26,0.6)', borderRight: '1.5px solid rgba(201,146,26,0.6)' }} />
-                            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '30px', height: '30px', borderBottom: '1.5px solid rgba(201,146,26,0.6)', borderLeft: '1.5px solid rgba(201,146,26,0.6)' }} />
-                            <div style={{ position: 'absolute', bottom: 0, right: 0, width: '30px', height: '30px', borderBottom: '1.5px solid rgba(201,146,26,0.6)', borderRight: '1.5px solid rgba(201,146,26,0.6)' }} />
+                            <div style={{ position: 'absolute', top: 0, left: 0, width: '30px', height: '30px', borderTop: '1.5px solid var(--gold-border-hi)', borderLeft: '1.5px solid var(--gold-border-hi)' }} />
+                            <div style={{ position: 'absolute', top: 0, right: 0, width: '30px', height: '30px', borderTop: '1.5px solid var(--gold-border-hi)', borderRight: '1.5px solid var(--gold-border-hi)' }} />
+                            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '30px', height: '30px', borderBottom: '1.5px solid var(--gold-border-hi)', borderLeft: '1.5px solid var(--gold-border-hi)' }} />
+                            <div style={{ position: 'absolute', bottom: 0, right: 0, width: '30px', height: '30px', borderBottom: '1.5px solid var(--gold-border-hi)', borderRight: '1.5px solid var(--gold-border-hi)' }} />
 
                             {/* Subtle warm glow at top */}
-                            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '120px', height: '50px', background: 'radial-gradient(ellipse, rgba(201,146,26,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                            <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '120px', height: '50px', background: 'radial-gradient(ellipse, rgba(181,149,86,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', position: 'relative', zIndex: 2 }}>
-                                <div style={{ fontSize: '2rem', filter: 'drop-shadow(0 0 6px rgba(201,146,26,0.4))' }}>{item.icon}</div>
+                                <div style={{ fontSize: '2rem', filter: 'drop-shadow(0 0 6px rgba(181,149,86,0.4))' }}>{item.icon}</div>
                             </div>
 
-                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.18rem', color: '#2A1206', marginBottom: '12px', position: 'relative', zIndex: 2 }}>{item.title}</h3>
-                            <div style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, #C9921A, transparent)', marginBottom: '12px' }} />
-                            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.9rem', lineHeight: 1.8, color: '#7A4219', marginBottom: '18px', flex: 1, position: 'relative', zIndex: 2 }}>{item.desc}</p>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.18rem', color: 'var(--text-dark)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>{item.title}</h3>
+                            <div style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, var(--gold), transparent)', marginBottom: '12px' }} />
+                            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--brown-mid)', marginBottom: '18px', flex: 1, position: 'relative', zIndex: 2 }}>{item.desc}</p>
 
                             <a href="#contact" onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
                                 className="btn-outline-brass"

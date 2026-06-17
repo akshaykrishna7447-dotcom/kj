@@ -26,10 +26,10 @@ export default function Navbar() {
     ];
     const scrollTo = (href) => document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
 
-    const scrolledBg   = 'rgba(253,250,244,0.97)';
-    const scrolledBorder = 'rgba(201,146,26,0.2)';
-    const textColor    = scrolled ? '#2A1206' : '#FDFAF4';
-    const logoGold     = '#C9921A';
+    const scrolledBg   = 'rgba(21,12,7,0.97)'; // --brown-deep
+    const scrolledBorder = 'rgba(181,149,86,0.25)';
+    const textColor    = '#F3E9D2'; // --cream
+    const logoGold     = '#B59556'; // --gold
 
     return (
         <>
@@ -44,7 +44,7 @@ export default function Navbar() {
             }}>
                 {/* Bottom gold line when scrolled */}
                 {scrolled && (
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.4), transparent)' }} />
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(181,149,86,0.4), transparent)' }} />
                 )}
 
                 <div style={{
@@ -57,21 +57,19 @@ export default function Navbar() {
                     <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
                         <a href="#hero" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
                             style={{ display: 'flex', alignItems: 'center', gap: '11px', cursor: 'none', textDecoration: 'none' }}>
-                            <span style={{ fontSize: '1.4rem', filter: `drop-shadow(0 0 8px rgba(201,146,26,0.7))`, animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
+                        <span style={{ fontSize: '1.4rem', filter: `drop-shadow(0 0 8px rgba(181,149,86,0.7))`, animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
                             <div>
                                 <span style={{
                                     fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700,
                                     fontSize: '0.88rem', letterSpacing: '0.22em', lineHeight: 1.1,
                                     display: 'block',
-                                    background: scrolled
-                                        ? 'linear-gradient(135deg, #9A6E10, #C9921A)'
-                                        : 'linear-gradient(135deg, #F0D98A, #E8C96A)',
+                                    background: 'linear-gradient(135deg, #D6B56F, #B59556)',
                                     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                                 }}>കൊട്ടിവട്ടം</span>
                                 <span style={{
                                     fontFamily: "'Manrope', sans-serif", fontWeight: 500,
                                     fontSize: '0.47rem', letterSpacing: '0.5em', display: 'block',
-                                    color: scrolled ? 'rgba(122,66,25,0.65)' : 'rgba(232,201,106,0.7)',
+                                    color: 'rgba(181,149,86,0.7)',
                                     textTransform: 'uppercase',
                                 }}>ഇല്ലം</span>
                             </div>
@@ -98,13 +96,13 @@ export default function Navbar() {
                             <a href="#contact" onClick={e => { e.preventDefault(); scrollTo('#contact'); }}
                                 style={{
                                     padding: '9px 22px', fontSize: '0.7rem', display: 'inline-flex', alignItems: 'center', gap: '6px',
-                                    border: `1px solid ${scrolled ? 'rgba(201,146,26,0.55)' : 'rgba(253,250,244,0.45)'}`,
+                                    border: `1px solid rgba(181,149,86,0.55)`,
                                     color: textColor, background: 'transparent', cursor: 'none', letterSpacing: '0.15em',
                                     fontFamily: "'Manrope', sans-serif", fontWeight: 600, textTransform: 'uppercase',
                                     transition: 'all 0.3s ease',
                                 }}
-                                onMouseEnter={e => { e.currentTarget.style.background = scrolled ? 'rgba(201,146,26,0.09)' : 'rgba(253,250,244,0.1)'; e.currentTarget.style.borderColor = logoGold; e.currentTarget.style.color = scrolled ? '#2A1206' : '#E8C96A'; }}
-                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = scrolled ? 'rgba(201,146,26,0.55)' : 'rgba(253,250,244,0.45)'; e.currentTarget.style.color = textColor; }}>
+                                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(181,149,86,0.1)'; e.currentTarget.style.borderColor = logoGold; e.currentTarget.style.color = '#EBE1CD'; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(181,149,86,0.55)'; e.currentTarget.style.color = textColor; }}>
                                 🙏 പൂജ ബുക്ക് ചെയ്യുക
                             </a>
                         </div>
@@ -112,7 +110,7 @@ export default function Navbar() {
 
                     {/* Mobile toggle */}
                     <button className="md-hidden" onClick={() => setIsOpen(!isOpen)}
-                        style={{ background: 'none', border: 'none', color: scrolled ? '#2A1206' : '#FDFAF4', padding: '4px', cursor: 'none' }}>
+                        style={{ background: 'none', border: 'none', color: '#F3E9D2', padding: '4px', cursor: 'none' }}>
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
@@ -122,14 +120,14 @@ export default function Navbar() {
             {isOpen && (
                 <div style={{
                     position: 'fixed', inset: 0, zIndex: 40,
-                    background: 'rgba(253,250,244,0.98)', backdropFilter: 'blur(24px)',
+                    background: 'rgba(21,12,7,0.98)', backdropFilter: 'blur(24px)',
                     display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '40px',
                 }}>
-                    <div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,146,26,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
-                    <span style={{ fontSize: '2.8rem', filter: 'drop-shadow(0 0 16px rgba(201,146,26,0.7))', animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
+                    <div style={{ position: 'absolute', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(181,149,86,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                    <span style={{ fontSize: '2.8rem', filter: 'drop-shadow(0 0 16px rgba(181,149,86,0.7))', animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
                     {navLinks.map(link => (
                         <a key={link.name} href={link.href} className="nav-link"
-                            style={{ fontSize: '1.3rem', fontFamily: "'Noto Serif Malayalam', serif", letterSpacing: '0.12em', color: '#2A1206' }}
+                            style={{ fontSize: '1.3rem', fontFamily: "'Noto Serif Malayalam', serif", letterSpacing: '0.12em', color: '#F3E9D2' }}
                             onClick={e => { e.preventDefault(); setIsOpen(false); scrollTo(link.href); }}>
                             {link.name}
                         </a>

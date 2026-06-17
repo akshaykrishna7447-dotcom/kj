@@ -149,7 +149,7 @@ export default function Storytelling() {
                 height: '100vh',
                 position: 'relative',
                 overflow: 'hidden',
-                background: '#1E0A03',
+                background: 'var(--brown-rich)',
             }}
         >
             {/* Fixed Header — stays on top across all scenes */}
@@ -163,7 +163,7 @@ export default function Storytelling() {
                 <h2 className="section-title text-gold-gradient" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.6rem)', marginTop: '6px' }}>
                     ജീവിക്കുന്ന പാരമ്പര്യം
                 </h2>
-                <div style={{ width: '80px', height: '1px', background: 'linear-gradient(90deg, transparent, #D4A017, transparent)', margin: '14px auto 0' }} />
+                <div style={{ width: '80px', height: '1px', background: 'linear-gradient(90deg, transparent, var(--gold), transparent)', margin: '14px auto 0' }} />
             </div>
 
             {/* Scene stack — all scenes layered, clip-path reveals them */}
@@ -201,15 +201,15 @@ export default function Storytelling() {
                         {/* Dark cinematic overlay */}
                         <div style={{
                             position: 'absolute', inset: 0,
-                            background: 'linear-gradient(180deg, rgba(42,18,6,0.5) 0%, rgba(42,18,6,0.18) 40%, rgba(42,18,6,0.78) 100%)',
+                            background: 'linear-gradient(180deg, rgba(21,12,7,0.5) 0%, rgba(21,12,7,0.18) 40%, rgba(21,12,7,0.88) 100%)',
                         }} />
 
                         {/* Side gradient for text legibility */}
                         <div style={{
                             position: 'absolute', inset: 0,
                             background: scene.align === 'left'
-                                ? 'linear-gradient(105deg, rgba(42,18,6,0.92) 0%, rgba(42,18,6,0.48) 52%, transparent 100%)'
-                                : 'linear-gradient(255deg, rgba(42,18,6,0.92) 0%, rgba(42,18,6,0.48) 52%, transparent 100%)',
+                                ? 'linear-gradient(105deg, rgba(21,12,7,0.92) 0%, rgba(21,12,7,0.48) 52%, transparent 100%)'
+                                : 'linear-gradient(255deg, rgba(21,12,7,0.92) 0%, rgba(21,12,7,0.48) 52%, transparent 100%)',
                         }} />
 
                         {/* Saffron flame glow at bottom */}
@@ -243,9 +243,9 @@ export default function Storytelling() {
                                     <span style={{
                                         fontFamily: "'Manrope', sans-serif", fontWeight: 700,
                                         fontSize: '0.68rem', letterSpacing: '0.35em',
-                                        textTransform: 'uppercase', color: '#D4A017',
+                                        textTransform: 'uppercase', color: 'var(--gold)',
                                         display: 'block', marginBottom: '18px',
-                                        filter: 'drop-shadow(0 0 8px rgba(212,160,23,0.5))',
+                                        filter: 'drop-shadow(0 0 8px rgba(181,149,86,0.5))',
                                     }}>{scene.label}</span>
 
                                     {/* Quote */}
@@ -255,7 +255,7 @@ export default function Storytelling() {
                                             fontFamily: "'Noto Serif Malayalam', serif",
                                             fontStyle: 'italic',
                                             fontSize: 'clamp(1.8rem, 3.2vw, 3.2rem)',
-                                            color: '#F5EDD8', lineHeight: 1.25,
+                                            color: 'var(--cream)', lineHeight: 1.25,
                                             marginBottom: '24px', marginTop: '0',
                                             textShadow: '0 4px 30px rgba(0,0,0,0.9)',
                                         }}
@@ -264,7 +264,7 @@ export default function Storytelling() {
                                     {/* Gold line */}
                                     <div style={{
                                         width: '70px', height: '1px',
-                                        background: 'linear-gradient(90deg, #D4A017, transparent)',
+                                        background: 'linear-gradient(90deg, var(--gold), transparent)',
                                         marginBottom: '20px',
                                         marginLeft: scene.align === 'right' ? 'auto' : '0',
                                     }} />
@@ -275,7 +275,7 @@ export default function Storytelling() {
                                         style={{
                                             fontFamily: "'Manrope', sans-serif", fontSize: '1.05rem',
                                             maxWidth: '420px', lineHeight: 1.75,
-                                            color: 'rgba(253,244,227,0.8)',
+                                            color: 'var(--text-cream-dim)',
                                             marginLeft: scene.align === 'right' ? 'auto' : '0',
                                         }}
                                     >{scene.sub}</p>
@@ -288,7 +288,7 @@ export default function Storytelling() {
                             position: 'absolute', bottom: '36px', right: '44px', zIndex: 5,
                             fontFamily: "'Manrope', sans-serif", fontWeight: 500,
                             fontSize: '0.68rem', letterSpacing: '0.25em',
-                            color: 'rgba(212,160,23,0.35)',
+                            color: 'rgba(181,149,86,0.35)',
                         }}>
                             {String(i + 1).padStart(2, '0')} / {String(scenes.length).padStart(2, '0')}
                         </div>

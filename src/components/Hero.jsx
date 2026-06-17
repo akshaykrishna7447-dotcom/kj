@@ -12,7 +12,7 @@ const PARTICLES = Array.from({ length: 16 }, (_, i) => ({
     opacity: 0.3 + (i % 5) * 0.07,
     dur:  `${9 + (i % 7) * 2.5}s`,
     delay:`${(i % 9) * 1.3}s`,
-    color: i % 2 === 0 ? '#C9921A' : '#E8C96A',
+    color: i % 2 === 0 ? '#B59556' : '#D6B56F',
 }));
 
 const MARQUEE = [
@@ -44,10 +44,6 @@ export default function Hero({ isLoaded }) {
                 { yPercent: 110, opacity: 0, rotateX: -60, skewX: 8 },
                 { yPercent: 0, opacity: 1, rotateX: 0, skewX: 0, duration: 1.1, stagger: 0.055, transformOrigin: 'bottom center' }
             )
-            .fromTo(subtitleRef.current,
-                { opacity: 0, letterSpacing: '3em', y: 10 },
-                { opacity: 1, letterSpacing: '1.2em', y: 0, duration: 1.2 }, '-=0.5'
-            )
             .fromTo(dividerRef.current,
                 { scaleX: 0, opacity: 0 },
                 { scaleX: 1, opacity: 1, duration: 0.8, ease: 'expo.out' }, '-=0.6'
@@ -76,7 +72,7 @@ export default function Hero({ isLoaded }) {
         return () => ctx.revert();
     }, [isLoaded]);
 
-    const letters = 'KOTTIVATTAM'.split('');
+    const letters = [...new Intl.Segmenter('ml', { granularity: 'grapheme' }).segment('കൊറ്റിവട്ടത്ത് ഇല്ലം')].map(x => x.segment);
 
     return (
         <section id="hero" ref={heroRef} style={{ height: '100vh', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -90,48 +86,42 @@ export default function Hero({ isLoaded }) {
                 willChange: 'transform', transform: 'translateZ(0)',
             }} />
 
-            {/* Warm brown-gold overlay — not pure black, warm toned */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(42,18,6,0.5) 0%, rgba(42,18,6,0.25) 45%, rgba(42,18,6,0.88) 100%)', zIndex: 2 }} />
+            {/* Dark black grading overlay */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.95) 100%)', zIndex: 2 }} />
             {/* Warm gold radial centre glow */}
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 50% at 50% 55%, rgba(201,146,26,0.12) 0%, transparent 70%)', zIndex: 2 }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 50% at 50% 55%, rgba(181,149,86,0.12) 0%, transparent 70%)', zIndex: 2 }} />
             {/* Side vignette */}
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(42,18,6,0.7) 0%, transparent 30%, transparent 70%, rgba(42,18,6,0.7) 100%)', zIndex: 2 }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(21,12,7,0.7) 0%, transparent 30%, transparent 70%, rgba(21,12,7,0.7) 100%)', zIndex: 2 }} />
 
             {/* Warm gold top lintel */}
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9921A, #E8C96A, #C9921A, transparent)', zIndex: 10 }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #B59556, #D6B56F, #B59556, transparent)', zIndex: 10 }} />
 
             {/* Hero content */}
             <div ref={contentRef} style={{ position: 'relative', zIndex: 10, textAlign: 'center', maxWidth: '1200px', width: '100%', padding: '0 32px', transform: 'translateY(-15px)' }}>
 
                 <h1 style={{ display: 'flex', flexDirection: 'column', gap: '4px', overflow: 'visible' }}>
-                    <span style={{ display: 'flex', justifyContent: 'center', gap: '0.06em', overflow: 'hidden', paddingBottom: '0.08em' }}>
+                    <span style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.02em', overflow: 'visible', paddingBottom: '0.2em' }}>
                         {letters.map((char, i) => (
                             <span key={i} ref={el => charsRef.current[i] = el} style={{
                                 display: 'inline-block',
                                 fontFamily: "'Nehana','Noto Serif Malayalam',serif",
                                 fontWeight: 'normal',
-                                fontSize: 'clamp(3rem, 10vw, 7.5rem)',
-                                lineHeight: 0.95,
-                                background: 'linear-gradient(180deg, #F0D98A 0%, #E8C96A 40%, #C9921A 80%, #9A6E10 100%)',
+                                fontSize: 'clamp(2.5rem, 8vw, 6.5rem)',
+                                lineHeight: 1.3,
+                                paddingRight: '0.15em', marginRight: '-0.15em',
+                                background: 'linear-gradient(180deg, #D6B56F 0%, #B59556 50%, #8C703C 100%)',
                                 WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                                filter: 'drop-shadow(0 4px 16px rgba(201,146,26,0.35))',
+                                filter: 'drop-shadow(0 4px 16px rgba(181,149,86,0.35))',
                                 willChange: 'transform', transformStyle: 'preserve-3d', opacity: 0,
-                            }}>{char}</span>
+                            }}>{char === ' ' ? '\u00A0' : char}</span>
                         ))}
                     </span>
-
-                    <span ref={subtitleRef} style={{
-                        fontFamily: "'Manrope',sans-serif", fontWeight: 500,
-                        fontSize: 'clamp(0.6rem, 2vw, 1rem)', letterSpacing: '1.2em',
-                        textTransform: 'uppercase', color: 'rgba(232,201,106,0.85)',
-                        marginTop: '12px', display: 'block', opacity: 0, marginRight: '-1.2em',
-                    }}>ILLAM</span>
                 </h1>
 
                 <div ref={dividerRef} style={{ maxWidth: '420px', margin: '34px auto', display: 'flex', alignItems: 'center', gap: '20px', transformOrigin: 'center' }}>
-                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.75))' }} />
-                    <span style={{ fontSize: '1.2rem', filter: 'drop-shadow(0 0 10px rgba(201,146,26,0.9))', animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
-                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(201,146,26,0.75), transparent)' }} />
+                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, transparent, rgba(181,149,86,0.75))' }} />
+                    <span style={{ fontSize: '1.2rem', filter: 'drop-shadow(0 0 10px rgba(181,149,86,0.9))', animation: 'flicker 3s ease-in-out infinite' }}>🪔</span>
+                    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(181,149,86,0.75), transparent)' }} />
                 </div>
 
                 <div ref={dividerRef} className="temple-divider" style={{ opacity: 0, margin: '24px auto', width: '200px' }}>
@@ -158,17 +148,17 @@ export default function Hero({ isLoaded }) {
 
             {/* Scroll indicator */}
             <div style={{ position: 'absolute', bottom: '80px', left: '50%', transform: 'translateX(-50%)', zIndex: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.6rem', letterSpacing: '0.3em', color: 'rgba(201,146,26,0.65)', textTransform: 'uppercase' }}>Scroll</span>
-                <div style={{ width: '1px', height: '46px', background: 'linear-gradient(180deg, rgba(201,146,26,0.7), transparent)', animation: 'float 2s ease-in-out infinite' }} />
+                <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.6rem', letterSpacing: '0.3em', color: 'rgba(181,149,86,0.65)', textTransform: 'uppercase' }}>Scroll</span>
+                <div style={{ width: '1px', height: '46px', background: 'linear-gradient(180deg, rgba(181,149,86,0.7), transparent)', animation: 'float 2s ease-in-out infinite' }} />
             </div>
 
             {/* Marquee strip — warm parchment */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 20, overflow: 'hidden', borderTop: '1px solid rgba(201,146,26,0.25)', background: 'rgba(42,18,6,0.88)', padding: '10px 0' }}>
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 20, overflow: 'hidden', borderTop: '1px solid rgba(181,149,86,0.25)', background: 'rgba(21,12,7,0.88)', padding: '10px 0' }}>
                 <div ref={marqueeRef} style={{ display: 'flex', gap: '48px', whiteSpace: 'nowrap', width: 'max-content' }}>
                     {[...MARQUEE, ...MARQUEE].map((item, i) => (
                         <span key={i} style={{
                             fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.67rem', letterSpacing: '0.25em', textTransform: 'uppercase',
-                            color: item === '✦' ? '#C9921A' : 'rgba(242,235,220,0.55)',
+                            color: item === '✦' ? '#B59556' : 'rgba(243,233,210,0.55)',
                         }}>{item}</span>
                     ))}
                 </div>

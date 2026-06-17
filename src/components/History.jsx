@@ -66,18 +66,18 @@ export default function History() {
     }, []);
 
     return (
-        <section id="illam" ref={sectionRef} style={{ height: '100vh', overflow: 'hidden', backgroundColor: '#F4ECD8', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+        <section id="illam" ref={sectionRef} style={{ height: '100vh', overflow: 'hidden', backgroundColor: 'var(--parchment)', position: 'relative', display: 'flex', flexDirection: 'column' }}>
 
             {/* Warm parchment texture */}
             <div className="parchment-texture" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }} />
             {/* Gold top rule */}
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9921A, transparent)', zIndex: 5 }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, var(--gold), transparent)', zIndex: 5 }} />
 
             {/* Pinned title */}
             <div style={{ textAlign: 'center', paddingTop: '8vh', paddingBottom: '2vh', position: 'relative', zIndex: 10, flexShrink: 0 }}>
                 <span className="section-eyebrow" style={{ marginBottom: '14px' }}>✦ നമ്മുടെ പൈതൃകം ✦</span>
                 <h2 className="section-title text-brown-gradient" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)' }}>കൊട്ടിവട്ടം പൈതൃകം</h2>
-                <div style={{ width: '100px', margin: '14px auto 0', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,146,26,0.6), transparent)' }} />
+                <div style={{ width: '100px', margin: '14px auto 0', height: '1px', background: 'linear-gradient(90deg, transparent, var(--gold-border-hi), transparent)' }} />
             </div>
 
             {/* Horizontal strip */}
@@ -87,9 +87,9 @@ export default function History() {
                         <div className="history-card" style={{
                             display: 'flex', flexDirection: 'row', width: '100%', maxWidth: '1100px',
                             height: '62vh', minHeight: '400px', overflow: 'hidden',
-                            border: '1px solid rgba(201,146,26,0.25)',
-                            boxShadow: '0 20px 60px rgba(42,18,6,0.1)',
-                            background: '#FDFAF4',
+                            border: '1px solid var(--gold-border)',
+                            boxShadow: '0 20px 60px rgba(21,12,7,0.1)',
+                            background: 'var(--cream)',
                             borderRadius: '4px'
                         }}>
                             {/* Image col */}
@@ -101,43 +101,43 @@ export default function History() {
                                     willChange: 'transform', transform: 'scale(1.12)',
                                 }} />
                                 {/* Warm fade to card */}
-                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, transparent 35%, #FDFAF4 100%)' }} />
+                                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, transparent 35%, var(--cream) 100%)' }} />
                                 {/* Subtle gold tint at bottom */}
-                                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '35%', background: 'linear-gradient(0deg, rgba(201,146,26,0.07) 0%, transparent 100%)' }} />
+                                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '35%', background: 'linear-gradient(0deg, var(--gold-subtle) 0%, transparent 100%)' }} />
                                 {/* Watermark number */}
                                 <div ref={el => numberRefs.current[i] = el} style={{
                                     position: 'absolute', bottom: '12px', left: '20px',
                                     fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700,
                                     fontSize: 'clamp(5rem,10vw,9rem)',
-                                    color: '#C9921A', opacity: 0.08, lineHeight: 1, userSelect: 'none',
+                                    color: 'var(--gold)', opacity: 0.08, lineHeight: 1, userSelect: 'none',
                                 }}>0{i + 1}</div>
                             </div>
 
                             {/* Text col */}
-                            <div style={{ flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 60px', position: 'relative', background: '#FDFAF4' }}>
+                            <div style={{ flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 60px', position: 'relative', background: 'var(--cream)' }}>
                                 {/* Top gold rule */}
-                                <div style={{ position: 'absolute', top: 0, left: '28px', right: '28px', height: '1px', background: 'linear-gradient(90deg, rgba(201,146,26,0.4), transparent)' }} />
+                                <div style={{ position: 'absolute', top: 0, left: '28px', right: '28px', height: '1px', background: 'linear-gradient(90deg, var(--gold-border-hi), transparent)' }} />
 
                                 <div ref={el => textRefs.current[i] = el}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
                                         <div style={{ fontSize: '1.5rem' }}>{item.icon}</div>
-                                        <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.25em', color: '#7A4219', textTransform: 'uppercase' }}>{item.year}</span>
+                                        <span style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 600, fontSize: '0.78rem', letterSpacing: '0.25em', color: 'var(--brown-mid)', textTransform: 'uppercase' }}>{item.year}</span>
                                     </div>
-                                    <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: 'clamp(1.8rem,3vw,2.8rem)', color: '#2A1206', marginBottom: '16px', lineHeight: 1.15 }}>
+                                    <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: 'clamp(1.8rem,3vw,2.8rem)', color: 'var(--text-dark)', marginBottom: '16px', lineHeight: 1.15 }}>
                                         {item.title}
                                     </h3>
-                                    <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg, #C9921A, transparent)', marginBottom: '16px' }} />
-                                    <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.97rem', lineHeight: 1.85, color: '#7A4219', maxWidth: '420px' }}>
+                                    <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg, var(--gold), transparent)', marginBottom: '16px' }} />
+                                    <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.97rem', lineHeight: 1.85, color: 'var(--brown-mid)', maxWidth: '420px' }}>
                                         {item.desc}
                                     </p>
                                 </div>
 
                                 {/* Card counter */}
-                                <div style={{ position: 'absolute', bottom: '28px', right: '36px', fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.2em', color: 'rgba(122,66,25,0.4)' }}>
+                                <div style={{ position: 'absolute', bottom: '28px', right: '36px', fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.2em', color: 'rgba(53,34,22,0.4)' }}>
                                     {String(i + 1).padStart(2, '0')} / {String(timelineData.length).padStart(2, '0')}
                                 </div>
                                 {/* Bottom gold rule */}
-                                <div style={{ position: 'absolute', bottom: 0, left: '28px', right: '28px', height: '1px', background: 'linear-gradient(90deg, rgba(201,146,26,0.4), transparent)' }} />
+                                <div style={{ position: 'absolute', bottom: 0, left: '28px', right: '28px', height: '1px', background: 'linear-gradient(90deg, var(--gold-border-hi), transparent)' }} />
                             </div>
                         </div>
                     </div>
@@ -145,8 +145,8 @@ export default function History() {
             </div>
 
             {/* Horizontal progress bar */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', background: 'rgba(201,146,26,0.15)', zIndex: 20 }}>
-                <div className="history-progress" style={{ height: '100%', background: 'linear-gradient(90deg, #C9921A, #E8C96A)', width: '0%', transition: 'none', boxShadow: '0 0 8px rgba(201,146,26,0.5)' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px', background: 'var(--gold-subtle)', zIndex: 20 }}>
+                <div className="history-progress" style={{ height: '100%', background: 'linear-gradient(90deg, var(--gold), var(--gold-light))', width: '0%', transition: 'none', boxShadow: '0 0 8px rgba(181,149,86,0.5)' }} />
             </div>
         </section>
     );
