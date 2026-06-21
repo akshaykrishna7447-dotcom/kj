@@ -1,4 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import '@fontsource/noto-serif-malayalam/400.css';
+import '@fontsource/noto-serif-malayalam/700.css';
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/500.css';
+import '@fontsource/manrope/700.css';
 import './index.css';
 import { useLenis } from './hooks/useLenis';
 import { useRevealAnimations } from './hooks/useReveal';
@@ -23,7 +28,7 @@ function GoldenCursor() {
   const pos = useRef({ x: 0, y: 0 });
   const ring = useRef({ x: 0, y: 0 });
   const isHovering = useRef(false);
-  const particles = useRef([]);
+
   const particleContainer = useRef(null);
 
   useEffect(() => {

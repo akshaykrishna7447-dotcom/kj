@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { createServer, preview } from 'vite';
+import { preview } from 'vite';
 
 (async () => {
     // Start preview server

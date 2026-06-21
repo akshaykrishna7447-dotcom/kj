@@ -28,7 +28,7 @@ export default function Hero({ isLoaded }) {
     const contentRef = useRef(null);
     const marqueeRef = useRef(null);
     const charsRef   = useRef([]);
-    const subtitleRef= useRef(null);
+
     const bodyRef    = useRef(null);
     const ctaRef     = useRef(null);
     const dividerRef = useRef(null);
@@ -104,7 +104,7 @@ export default function Hero({ isLoaded }) {
                         {letters.map((char, i) => (
                             <span key={i} ref={el => charsRef.current[i] = el} style={{
                                 display: 'inline-block',
-                                fontFamily: "'Nehana','Noto Serif Malayalam',serif",
+                                fontFamily: "'Noto Serif Malayalam',serif",
                                 fontWeight: 'normal',
                                 fontSize: 'clamp(2.5rem, 8vw, 6.5rem)',
                                 lineHeight: 1.3,

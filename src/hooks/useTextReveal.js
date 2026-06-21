@@ -19,7 +19,7 @@ export function useTextReveal() {
         const wrapper = document.createElement('span');
         wrapper.style.display = 'inline-block';
         
-        const chars = text.split('').map((char, i) => {
+        text.split('').forEach((char, i) => {
             const span = document.createElement('span');
             span.innerText = char === ' ' ? '\u00A0' : char;
             span.style.display = 'inline-block';

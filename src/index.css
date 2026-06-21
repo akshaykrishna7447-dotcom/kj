@@ -1,22 +1,6 @@
 @import "tailwindcss";
 
-@import '@fontsource/noto-serif-malayalam/400.css';
-@import '@fontsource/noto-serif-malayalam/700.css';
-@import '@fontsource/manrope/400.css';
-@import '@fontsource/manrope/500.css';
-@import '@fontsource/manrope/700.css';
 
-/* ═══════════════════════════════════════════
-   CUSTOM LOCAL FONTS (Nehana by Kenrichi)
-═══════════════════════════════════════════ */
-@font-face {
-  font-family: 'Nehana';
-  src: url('/Nehana.ttf') format('truetype'),
-       url('/Nehana.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ═══════════════════════════════════════════
    ROOT — WHITE × BROWN × GOLD PALETTE
