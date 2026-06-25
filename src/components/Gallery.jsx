@@ -14,7 +14,7 @@ export default function Gallery() {
     const sectionRef = useRef(null);
 
     return (
-        <section id="gallery" ref={sectionRef} style={{ padding: '100px 0', background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
+        <section id="gallery" ref={sectionRef} style={{ padding: 'clamp(60px, 8vw, 100px) 0', background: 'var(--cream)', position: 'relative', overflow: 'hidden', width: '100%' }}>
             <div className="parchment-texture" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, var(--gold-border-hi), transparent)' }} />
             {/* Warm ambient centre glow */}
@@ -22,9 +22,9 @@ export default function Gallery() {
 
             <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px', position: 'relative', zIndex: 10 }}>
                 {/* Header */}
-                <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
                     <span className="reveal-up section-eyebrow" style={{ marginBottom: '14px' }}>✦ പവിത്ര ദൃശ്യങ്ങൾ ✦</span>
-                    <h2 className="reveal-up section-title text-brown-gradient" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', marginTop: '10px', marginBottom: '24px' }}>ദിവ്യമായ കാഴ്ചകൾ</h2>
+                    <h2 className="reveal-up section-title text-brown-gradient" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '10px', marginBottom: '24px' }}>ദിവ്യമായ കാഴ്ചകൾ</h2>
                     <div className="temple-divider reveal-up"><span className="temple-ornament">✦</span></div>
                 </div>
 

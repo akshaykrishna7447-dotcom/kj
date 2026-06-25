@@ -25,7 +25,7 @@ export default function About() {
     }, []);
 
     return (
-        <section id="about" style={{ position: 'relative', padding: '120px 0', background: 'var(--parchment)', overflow: 'hidden' }}>
+        <section id="about" style={{ position: 'relative', padding: 'clamp(60px, 8vw, 100px) 0', background: 'var(--parchment)', overflow: 'hidden', width: '100%' }}>
             {/* Parallax watermark */}
             <div ref={bgRef} style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/portrait.png)', backgroundSize: 'cover', backgroundPosition: 'center top', opacity: 0.04, willChange: 'transform', filter: 'sepia(60%) grayscale(40%)' }} />
             <div className="parchment-texture" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} />
@@ -35,17 +35,17 @@ export default function About() {
                 {/* Header */}
                 <div style={{ textAlign: 'center' }}>
                     <span className="reveal-up section-eyebrow" style={{ marginBottom: '14px' }}>✦ പാരമ്പര്യത്തിന്റെ കാവൽക്കാരൻ ✦</span>
-                    <h2 ref={titleRef} className="section-title text-brown-gradient" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', marginTop: '10px', marginBottom: '24px' }}>
+                    <h2 ref={titleRef} className="section-title text-brown-gradient" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '10px', marginBottom: '24px' }}>
                         ജയരാജൻ നമ്പൂതിരി
                     </h2>
                     <div className="temple-divider reveal-up"><span className="temple-ornament">✦</span></div>
                 </div>
 
                 {/* Stats strip */}
-                <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'var(--gold-subtle)', marginBottom: '80px', border: '1px solid var(--gold-border)' }}>
+                <div className="reveal-up" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1px', background: 'var(--gold-subtle)', marginBottom: 'clamp(40px, 6vw, 80px)', border: '1px solid var(--gold-border)' }}>
                     {stats.map((s, idx) => (
-                        <div key={idx} style={{ textAlign: 'center', padding: '28px 20px', background: 'var(--cream)' }}>
-                            <p style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: 'clamp(1.8rem,3vw,2.8rem)', color: 'var(--gold)', lineHeight: 1, textShadow: '0 0 20px rgba(181,149,86,0.3)' }}>{s.number}</p>
+                        <div key={idx} style={{ textAlign: 'center', padding: 'clamp(16px, 3vw, 28px) clamp(10px, 2vw, 20px)', background: 'var(--cream)' }}>
+                            <p style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: 'clamp(1.5rem,3vw,2.5rem)', color: 'var(--gold)', lineHeight: 1, textShadow: '0 0 20px rgba(181,149,86,0.3)' }}>{s.number}</p>
                             <p style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 500, fontSize: '0.7rem', letterSpacing: '0.2em', color: 'var(--brown-mid)', marginTop: '8px', textTransform: 'uppercase' }}>{s.label}</p>
                         </div>
                     ))}
@@ -82,20 +82,20 @@ export default function About() {
                     </div>
 
                     {/* Text */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(24px, 4vw, 36px)' }}>
                         <div className="reveal-up">
-                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.12rem', color: 'var(--gold)', marginBottom: '12px' }}>പവിത്ര പരമ്പര (Parambara)</h3>
-                            <p className="section-subtitle" style={{ fontSize: '0.97rem', lineHeight: 1.85 }}>കോഴിക്കോട്ടെ പുരാതനവും ആദരണീയവുമായ കൊട്ടിവട്ടം നമ്പൂതിരി കുടുംബത്തിൽ ജനിച്ച അദ്ദേഹം ആയിരത്തിലധികം വർഷത്തെ പാരമ്പര്യത്തിന്റെ ജീവിക്കുന്ന മാതൃകയാണ്. ഉത്തര കേരളത്തിലെ ഏറ്റവും പ്രധാനപ്പെട്ട ക്ഷേത്ര കർമ്മങ്ങളുടെ ചുമതലയുള്ള പ്രസിദ്ധരായ പണ്ഡിതരുടെ പിൻമുറക്കാരനാണദ്ദേഹം.</p>
-                            <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg,var(--gold),transparent)', marginTop: '28px' }} />
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.25rem', color: 'var(--gold)', marginBottom: '12px' }}>പവിത്ര പരമ്പര (Parambara)</h3>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>കോഴിക്കോട്ടെ പുരാതനവും ആദരണീയവുമായ കൊട്ടിവട്ടം നമ്പൂതിരി കുടുംബത്തിൽ ജനിച്ച അദ്ദേഹം ആയിരത്തിലധികം വർഷത്തെ പാരമ്പര്യത്തിന്റെ ജീവിക്കുന്ന മാതൃകയാണ്. ഉത്തര കേരളത്തിലെ ഏറ്റവും പ്രധാനപ്പെട്ട ക്ഷേത്ര കർമ്മങ്ങളുടെ ചുമതലയുള്ള പ്രസിദ്ധരായ പണ്ഡിതരുടെ പിൻമുറക്കാരനാണദ്ദേഹം.</p>
+                            <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg,var(--gold),transparent)', marginTop: 'clamp(16px, 3vw, 28px)' }} />
                         </div>
                         <div className="reveal-up">
-                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.12rem', color: 'var(--gold)', marginBottom: '12px' }}>ആത്മീയ യാത്ര</h3>
-                            <p className="section-subtitle" style={{ fontSize: '0.97rem', lineHeight: 1.85 }}>ചെറുപ്പം മുതലേ കഠിനമായ വൈദിക പഠനങ്ങളിലൂടെയും വേദമന്ത്രോച്ചാരണങ്ങളിലൂടെയും ആചാരക്രമങ്ങളിലൂടെയുമാണ് ജയരാജൻ നമ്പൂതിരി വളർന്നുവന്നത്. തൃശ്ശൂരിലെയും ഗുരുവായൂരിലെയും പ്രഗത്ഭരായ പണ്ഡിതരുടെ കീഴിൽ അദ്ദേഹം ഉയർന്ന വൈദിക പഠനം പൂർത്തിയാക്കി.</p>
-                            <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg,var(--gold),transparent)', marginTop: '28px' }} />
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.25rem', color: 'var(--gold)', marginBottom: '12px' }}>ആത്മീയ യാത്ര</h3>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>ചെറുപ്പം മുതലേ കഠിനമായ വൈദിക പഠനങ്ങളിലൂടെയും വേദമന്ത്രോച്ചാരണങ്ങളിലൂടെയും ആചാരക്രമങ്ങളിലൂടെയുമാണ് ജയരാജൻ നമ്പൂതിരി വളർന്നുവന്നത്. തൃശ്ശൂരിലെയും ഗുരുവായൂരിലെയും പ്രഗത്ഭരായ പണ്ഡിതരുടെ കീഴിൽ അദ്ദേഹം ഉയർന്ന വൈദിക പഠനം പൂർത്തിയാക്കി.</p>
+                            <div style={{ width: '55px', height: '1px', background: 'linear-gradient(90deg,var(--gold),transparent)', marginTop: 'clamp(16px, 3vw, 28px)' }} />
                         </div>
                         <div className="reveal-up">
-                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.12rem', color: 'var(--gold)', marginBottom: '12px' }}>ഭക്തിസാന്ദ്രമായ സേവന ജീവിതം</h3>
-                            <p className="section-subtitle" style={{ fontSize: '0.97rem', lineHeight: 1.85 }}>മൂന്ന് പതിറ്റാണ്ടിലേറെയായി കേരളം, കർണാടക, തമിഴ്‌നാട് എന്നിവിടങ്ങളിലെ ആയിരക്കണക്കിന് കുടുംബങ്ങൾക്കായി അദ്ദേഹം പൂജാകർമ്മങ്ങൾ ചെയ്തുവരുന്നു. വൈദിക ഗ്രന്ഥങ്ങളോടുള്ള വിട്ടുവീഴ്ചയില്ലാത്ത കൂറിനും, എത്ര സങ്കീർണ്ണമായ കർമ്മങ്ങളും കൃത്യതയോടെയും ഭക്തിയോടെയും പൂർത്തിയാക്കുന്നതിലും അദ്ദേഹം പ്രശസ്തനാണ്.</p>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.25rem', color: 'var(--gold)', marginBottom: '12px' }}>ഭക്തിസാന്ദ്രമായ സേവന ജീവിതം</h3>
+                            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>മൂന്ന് പതിറ്റാണ്ടിലേറെയായി കേരളം, കർണാടക, തമിഴ്‌നാട് എന്നിവിടങ്ങളിലെ ആയിരക്കണക്കിന് കുടുംബങ്ങൾക്കായി അദ്ദേഹം പൂജാകർമ്മങ്ങൾ ചെയ്തുവരുന്നു. വൈദിക ഗ്രന്ഥങ്ങളോടുള്ള വിട്ടുവീഴ്ചയില്ലാത്ത കൂറിനും, എത്ര സങ്കീർണ്ണമായ കർമ്മങ്ങളും കൃത്യതയോടെയും ഭക്തിയോടെയും പൂർത്തിയാക്കുന്നതിലും അദ്ദേഹം പ്രശസ്തനാണ്.</p>
                         </div>
 
                         <div className="reveal-up">

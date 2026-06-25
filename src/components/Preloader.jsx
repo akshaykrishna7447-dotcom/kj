@@ -1,28 +1,64 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+
 export default function Preloader({ onComplete }) {
     const containerRef = useRef(null);
+    const sparksRef = useRef(null);
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         window.scrollTo(0, 0);
 
         const ctx = gsap.context(() => {
+            // Blinking cursor
+            gsap.to('.pl-cursor', { opacity: 0, duration: 0.4, repeat: -1, yoyo: true, ease: 'none' });
+
+            // Generate spiritual sparks (Homam embers)
+            if (sparksRef.current) {
+                for (let i = 0; i < 30; i++) {
+                    const spark = document.createElement('div');
+                    spark.style.position = 'absolute';
+                    spark.style.width = Math.random() * 3 + 1 + 'px';
+                    spark.style.height = spark.style.width;
+                    spark.style.borderRadius = '50%';
+                    spark.style.background = Math.random() > 0.5 ? '#E8C96A' : '#C9921A';
+                    spark.style.boxShadow = '0 0 8px rgba(232,201,106,0.8)';
+                    spark.style.bottom = '-10px';
+                    spark.style.left = Math.random() * 100 + '%';
+                    spark.style.opacity = 0;
+                    sparksRef.current.appendChild(spark);
+
+                    gsap.to(spark, {
+                        y: -window.innerHeight - 100,
+                        x: `+=${(Math.random() - 0.5) * 100}`,
+                        opacity: Math.random() * 0.6 + 0.2,
+                        duration: Math.random() * 3 + 3,
+                        ease: 'power1.out',
+                        repeat: -1,
+                        delay: Math.random() * 3,
+                    });
+                }
+            }
+
             const tl = gsap.timeline({
                 onComplete: () => { document.body.style.overflow = ''; onComplete(); }
             });
+
             tl
-                .to('.pl-glow-outer', { opacity: 0.6, scale: 1.5, duration: 2.5, ease: 'sine.inOut' }, 0)
-                .to('.pl-glow-inner', { opacity: 0.9, scale: 1.3, duration: 2,   ease: 'sine.inOut' }, 0.3)
-                .fromTo('.pl-ring',   { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out' }, 0.2)
-                .to('.pl-title',      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }, 0.8)
-                .to('.pl-sub',        { opacity: 1, y: 0, duration: 1,   ease: 'power3.out' }, 1.1)
-                .to('.pl-verse',      { opacity: 1, y: 0, duration: 1,   ease: 'power3.out' }, 1.3)
-                .to('.pl-bar-fill',   { scaleX: 1, duration: 2.2, ease: 'power3.inOut' }, 1.0)
-                .to({}, { duration: 0.5 })
-                .to(['.pl-title', '.pl-sub', '.pl-verse', '.pl-ring', '.pl-bar', '.pl-glow-outer', '.pl-glow-inner'],
-                    { opacity: 0, y: -30, duration: 0.7, ease: 'expo.in' })
-                .to(containerRef.current, { yPercent: -100, duration: 1.4, ease: 'expo.inOut' }, '-=0.2');
+                .to('.pl-glow-ambient', { opacity: 0.8, scale: 1.2, duration: 2.5, ease: 'sine.inOut' }, 0)
+                // Typing effect using clipPath inset from right
+                .to('.pl-text-reveal', { clipPath: 'inset(0 0% 0 0)', duration: 2.5, ease: 'power1.inOut' }, 0.5)
+                // Move cursor along with the text reveal
+                .fromTo('.pl-cursor', { left: '0%' }, { left: '100%', duration: 2.5, ease: 'power1.inOut' }, 0.5)
+                
+                .to('.pl-bar-fill', { scaleX: 1, duration: 2.5, ease: 'power3.inOut' }, 0.5)
+                
+                .to({}, { duration: 0.6 }) // Hold briefly
+
+                // Exit
+                .to(['.pl-title-container', '.pl-bar', '.pl-glow-ambient', sparksRef.current],
+                    { opacity: 0, y: -30, duration: 0.8, ease: 'expo.in' })
+                .to(containerRef.current, { yPercent: -100, duration: 1.2, ease: 'expo.inOut' }, '-=0.3');
         }, containerRef);
 
         return () => { document.body.style.overflow = ''; ctx.revert(); };
@@ -31,78 +67,54 @@ export default function Preloader({ onComplete }) {
     return (
         <div ref={containerRef} style={{
             position: 'fixed', inset: 0, zIndex: 999999,
-            background: '#2A1206',
+            background: '#1A0F09',
             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
             overflow: 'hidden',
         }}>
-            {/* Outer warm brown glow */}
-            <div className="pl-glow-outer" style={{
-                position: 'absolute', width: '700px', height: '700px', borderRadius: '50%',
+            {/* Ambient warm background glow */}
+            <div className="pl-glow-ambient" style={{
+                position: 'absolute', width: '800px', height: '800px', borderRadius: '50%',
                 background: 'radial-gradient(circle, rgba(201,146,26,0.1) 0%, transparent 70%)',
                 opacity: 0, transform: 'scale(0.5)', pointerEvents: 'none',
             }} />
-            {/* Inner gold glow */}
-            <div className="pl-glow-inner" style={{
-                position: 'absolute', width: '280px', height: '280px', borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(232,201,106,0.22) 0%, transparent 70%)',
-                opacity: 0, transform: 'scale(0.5)', pointerEvents: 'none',
+
+            {/* Spiritual Sparks Container */}
+            <div ref={sparksRef} style={{
+                position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 5
             }} />
 
-            {/* Spinning ornament ring */}
-            <div className="pl-ring" style={{
-                width: '110px', height: '110px', borderRadius: '50%',
-                border: '1px solid rgba(201,146,26,0.45)',
-                boxShadow: '0 0 30px rgba(201,146,26,0.2), inset 0 0 20px rgba(201,146,26,0.07)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                position: 'relative', marginBottom: '28px', opacity: 0,
-                animation: 'spin-slow 14s linear infinite',
-            }}>
-                <div style={{ position: 'absolute', inset: '8px', borderRadius: '50%', border: '1px solid rgba(201,146,26,0.2)' }} />
-                <span style={{ fontSize: '2.2rem', filter: 'drop-shadow(0 0 10px rgba(201,146,26,0.9))', lineHeight: 1 }}>🪔</span>
-                {Array.from({ length: 8 }).map((_, i) => (
-                    <div key={i} style={{
-                        position: 'absolute', width: '1px', height: '7px',
-                        background: 'rgba(201,146,26,0.5)',
-                        top: '5px', left: '50%', transformOrigin: '0 50px',
-                        transform: `rotate(${i * 45}deg)`,
-                    }} />
-                ))}
-            </div>
+            {/* Title with Typing Reveal */}
+            <div className="pl-title-container" style={{ position: 'relative', zIndex: 10, display: 'inline-block' }}>
+                {/* Hidden text to establish container size */}
+                <h2 style={{
+                    fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 400,
+                    fontSize: '3.5rem', letterSpacing: '0.02em',
+                    color: 'transparent', marginBottom: '0', lineHeight: 1.2,
+                    userSelect: 'none'
+                }}>കൊറ്റിവട്ടത്ത് ഇല്ലം</h2>
 
-            {/* Text */}
-            <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
-                <div className="pl-title" style={{ opacity: 0, transform: 'translateY(20px)' }}>
-                    <h2 style={{
-                        fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 700,
-                        fontSize: '1.5rem', letterSpacing: '0.42em',
-                        background: 'linear-gradient(135deg, #F0D98A, #C9921A, #E2CCA8)',
-                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text', marginBottom: '5px',
-                    }}>കൊട്ടിവട്ടം</h2>
-                    <p style={{
-                        fontFamily: "'Manrope', sans-serif", fontWeight: 500,
-                        fontSize: '0.6rem', letterSpacing: '0.58em',
-                        color: 'rgba(201,146,26,0.7)', textTransform: 'uppercase',
-                    }}>ഇല്ലം</p>
-                </div>
+                {/* Visible animated text */}
+                <h2 className="pl-text-reveal" style={{
+                    position: 'absolute', top: 0, left: 0, whiteSpace: 'nowrap',
+                    fontFamily: "'Noto Serif Malayalam', serif", fontWeight: 400,
+                    fontSize: '3.5rem', letterSpacing: '0.02em',
+                    background: 'linear-gradient(135deg, #F0D98A, #C9921A, #E2CCA8)',
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text', marginBottom: '0', lineHeight: 1.2,
+                    clipPath: 'inset(0 100% 0 0)' // Start fully clipped from right
+                }}>കൊറ്റിവട്ടത്ത് ഇല്ലം</h2>
 
-                <div className="pl-sub" style={{ opacity: 0, transform: 'translateY(14px)', marginTop: '18px' }}>
-                    <p style={{ fontFamily: "'Manrope', sans-serif", fontSize: '0.72rem', letterSpacing: '0.28em', color: 'rgba(196,149,106,0.85)', textTransform: 'uppercase' }}>
-                        ✦ പവിത്രമായ അഗ്നി ഉണരുന്നു ✦
-                    </p>
-                </div>
-
-                <div className="pl-verse" style={{ opacity: 0, transform: 'translateY(12px)', marginTop: '16px' }}>
-                    <p style={{ fontFamily: "'Noto Serif Malayalam', serif", fontStyle: 'italic', fontSize: '0.88rem', color: 'rgba(242,235,220,0.4)', letterSpacing: '0.04em' }}>
-                        പാരമ്പര്യത്തിന്റെ പുനർജന്മം • അനശ്വരമായ ജ്ഞാനം
-                    </p>
+                {/* Blinking Cursor */}
+                <div style={{ position: 'absolute', top: '10%', bottom: '10%', left: '0%', width: '100%', pointerEvents: 'none' }}>
+                    <div className="pl-cursor" style={{ position: 'absolute', top: 0, left: '0%', height: '100%', width: '4px', background: '#E8C96A', boxShadow: '0 0 10px rgba(232,201,106,0.8)', borderRadius: '2px' }} />
                 </div>
             </div>
 
-            {/* Bar */}
+            {/* Minimal Progress Bar */}
             <div className="pl-bar" style={{
-                width: '150px', height: '1px',
-                background: 'rgba(201,146,26,0.15)', marginTop: '42px', overflow: 'hidden',
+                width: '240px', height: '1px',
+                background: 'rgba(201,146,26,0.1)', marginTop: '50px', overflow: 'hidden',
+                borderRadius: '2px', position: 'relative', zIndex: 10
             }}>
                 <div className="pl-bar-fill" style={{
                     width: '100%', height: '100%',

@@ -59,7 +59,7 @@ export default function Poojas() {
     }, []);
 
     return (
-        <section id="poojas" ref={sectionRef} style={{ position: 'relative', padding: '120px 0', background: 'var(--parchment)', overflow: 'hidden' }}>
+        <section id="poojas" ref={sectionRef} style={{ position: 'relative', padding: 'clamp(60px, 8vw, 100px) 0', background: 'var(--parchment)', overflow: 'hidden', width: '100%' }}>
             {/* Parchment texture */}
             <div className="parchment-texture" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, var(--gold-border-hi), transparent)' }} />
@@ -69,16 +69,16 @@ export default function Poojas() {
 
             <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
                 {/* Header */}
-                <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
                     <span className="reveal-up section-eyebrow" style={{ marginBottom: '14px' }}>✦ കർമ്മങ്ങളിലൂടെയുള്ള ഭക്തി ✦</span>
-                    <h2 ref={titleRef} className="section-title text-brown-gradient" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', marginTop: '10px', marginBottom: '24px' }}>
+                    <h2 ref={titleRef} className="section-title text-brown-gradient" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '10px', marginBottom: '24px' }}>
                         പവിത്രമായ കർമ്മങ്ങൾ
                     </h2>
                     <div className="temple-divider reveal-up"><span className="temple-ornament">✦</span></div>
                 </div>
 
                 {/* Cards grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '28px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(16px, 3vw, 28px)' }}>
                     {[...homams, ...poojas].map((item, i) => (
                         <TiltCard key={i} style={{
                             padding: '38px 32px', display: 'flex', flexDirection: 'column',
@@ -102,9 +102,9 @@ export default function Poojas() {
                                 <div style={{ fontSize: '2rem', filter: 'drop-shadow(0 0 6px rgba(181,149,86,0.4))' }}>{item.icon}</div>
                             </div>
 
-                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.18rem', color: 'var(--text-dark)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>{item.title}</h3>
+                            <h3 style={{ fontFamily: "'Noto Serif Malayalam',serif", fontWeight: 700, fontSize: '1.25rem', color: 'var(--text-dark)', marginBottom: '12px', position: 'relative', zIndex: 2 }}>{item.title}</h3>
                             <div style={{ width: '48px', height: '1px', background: 'linear-gradient(90deg, var(--gold), transparent)', marginBottom: '12px' }} />
-                            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '0.9rem', lineHeight: 1.8, color: 'var(--brown-mid)', marginBottom: '18px', flex: 1, position: 'relative', zIndex: 2 }}>{item.desc}</p>
+                            <p style={{ fontFamily: "'Manrope',sans-serif", fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-mid)', marginBottom: '18px', flex: 1, position: 'relative', zIndex: 2 }}>{item.desc}</p>
 
                             <a href="#contact" onClick={e => { e.preventDefault(); document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }}
                                 className="btn-outline-brass"

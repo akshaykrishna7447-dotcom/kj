@@ -38,7 +38,7 @@ export default function Booking() {
     };
 
     return (
-        <section id="contact" ref={sectionRef} style={{ position: 'relative', padding: '120px 0', overflow: 'hidden', background: 'var(--parchment)' }}>
+        <section id="contact" ref={sectionRef} style={{ position: 'relative', padding: 'clamp(60px, 8vw, 100px) 0', overflow: 'hidden', background: 'var(--parchment)', width: '100%' }}>
             <div ref={bgRef} style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/lamps.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.05, willChange: 'transform', filter: 'sepia(50%) brightness(0.8)' }} />
             <div ref={orb1Ref} style={{ position: 'absolute', top: '20%', left: '8%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(181,149,86,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <div ref={orb2Ref} style={{ position: 'absolute', bottom: '20%', right: '8%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(53,34,22,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
@@ -47,15 +47,15 @@ export default function Booking() {
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, var(--gold-border-hi), transparent)' }} />
 
             <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-                <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                <div style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 80px)' }}>
                     <div style={{ position: 'relative', display: 'inline-block', marginBottom: '20px' }}>
                         <div className="booking-halo" style={{ position: 'absolute', inset: '-8px', borderRadius: '50%', border: '1px solid rgba(181,149,86,0.5)', opacity: 0.8 }} />
                         <span style={{ fontSize: '2rem', filter: 'drop-shadow(0 0 16px rgba(181,149,86,0.8))', animation: 'flicker 3s ease-in-out infinite', display: 'block' }}>🪔</span>
                     </div>
                     <span className="reveal-up section-eyebrow" style={{ marginBottom: '14px', display: 'block' }}>✦ ഞങ്ങളെ ബന്ധപ്പെടുക ✦</span>
-                    <h2 className="reveal-up section-title text-brown-gradient" style={{ fontSize: 'clamp(2.5rem,5vw,4.5rem)', marginTop: '10px', marginBottom: '24px' }}>പൂജകൾ ബുക്ക് ചെയ്യുക</h2>
+                    <h2 className="reveal-up section-title text-brown-gradient" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginTop: '10px', marginBottom: '24px' }}>പൂജകൾ ബുക്ക് ചെയ്യുക</h2>
                     <div className="temple-divider reveal-up"><span className="temple-ornament">✦</span></div>
-                    <p className="reveal-up section-subtitle" style={{ maxWidth: '600px', margin: '24px auto 0', fontSize: '1.05rem', lineHeight: 1.8 }}>
+                    <p className="reveal-up" style={{ maxWidth: '600px', margin: '24px auto 0', fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-mid)' }}>
                         പൂജകൾ ബുക്ക് ചെയ്യാൻ വാട്ട്‌സ്ആപ്പ് വഴി ഞങ്ങളെ ബന്ധപ്പെടുക. വളരെ വേഗം തന്നെ ഞങ്ങൾ മറുപടി നൽകുന്നതാണ്.
                     </p>
                 </div>
@@ -96,10 +96,10 @@ export default function Booking() {
                             <h3 style={{ fontFamily: "'Manrope',sans-serif", fontWeight: 700, fontSize: '0.78rem', color: 'var(--gold)', marginBottom: '30px', letterSpacing: '0.2em', textTransform: 'uppercase' }}>ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ</h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
                                 {[
-                                    { icon: <Phone size={17} />, label: 'ഫോൺ', value: '+91 94000 00000', href: 'tel:+919400000000' },
-                                    { icon: <MessageCircle size={17} />, label: 'വാട്ട്‌സ്ആപ്പ്', value: 'മെസ്സേജ് അയക്കുക', href: 'https://wa.me/919400000000' },
-                                    { icon: <MapPin size={17} />, label: 'സ്ഥലം', value: 'കൊട്ടിവട്ടം ഇല്ലം, കോഴിക്കോട്, കേരളം', href: '#' },
-                                    { icon: <Mail size={17} />, label: 'ഇമെയിൽ', value: 'kottivattamillam@gmail.com', href: 'mailto:kottivattamillam@gmail.com' },
+                                    { icon: <Phone size={17} />, label: 'ഫോൺ', value: '+91 99610 85646', href: 'tel:+919961085646' },
+                                    { icon: <MessageCircle size={17} />, label: 'വാട്ട്‌സ്ആപ്പ്', value: 'മെസ്സേജ് അയക്കുക', href: 'https://wa.me/919961085646' },
+                                    { icon: <MapPin size={17} />, label: 'സ്ഥലം', value: 'കൊട്ടിവട്ടം ഇല്ലം, കോഴിക്കോട്, കേരളം', href: 'https://maps.app.goo.gl/dKugayduKY7srUUp9?g_st=iw' },
+                                    { icon: <Mail size={17} />, label: 'ഇമെയിൽ', value: 'jayarajan.namboothiri@gmail.com', href: 'mailto:jayarajan.namboothiri@gmail.com' },
                                 ].map(item => (
                                     <a key={item.label} href={item.href} className="contact-row" target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
                                         style={{ display: 'flex', alignItems: 'center', gap: '16px', textDecoration: 'none', cursor: 'none', transition: 'transform 0.25s ease' }}
